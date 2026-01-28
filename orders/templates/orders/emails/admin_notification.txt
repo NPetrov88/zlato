@@ -1,0 +1,34 @@
+ZLATO - New Order Received!
+
+═══════════════════════════════════════
+ORDER #{{ order.order_number }}
+═══════════════════════════════════════
+
+CUSTOMER INFORMATION
+───────────────────────────────────────
+Customer: {{ order.customer_name }}
+Email: {{ order.customer_email }}
+Phone: {{ order.customer_phone }}
+Order Date: {{ order.created_at|date:"F d, Y H:i" }}
+
+ITEMS ORDERED
+───────────────────────────────────────
+{% for item in order.items.all %}
+{{ item.quantity }}x {{ item.product_name }} @ {{ item.product_price }} BGN = {{ item.total_price }} BGN
+{% endfor %}
+
+PRICING
+───────────────────────────────────────
+Subtotal: {{ order.subtotal }} BGN
+Shipping: {{ order.shipping_cost }} BGN
+{% if order.discount_amount > 0 %}Discount: -{{ order.discount_amount }} BGN (Code: {{ order.discount_code.code }})
+{% endif %}TOTAL: {{ order.total }} BGN
+
+SHIPPING ADDRESS
+───────────────────────────────────────
+{{ order.shipping_address }}
+{{ order.shipping_city }}, {{ order.shipping_postal_code }}
+{% if order.shipping_region %}{{ order.shipping_region }}
+{% endif %}Bulgaria
+
+View in Admin: {{ admin_url }}

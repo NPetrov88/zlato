@@ -1,0 +1,215 @@
+{% extends 'products/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Let's Cook" %} - ZLATO{% endblock %}
+
+{% block content %}
+<section class="py-16 bg-zlato-pink-light">
+    <!-- Hero Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+            <h1 class="text-5xl md:text-7xl font-black text-zlato-black mb-6 leading-tight">{% trans "Let's Cook" %}</h1>
+            <p class="text-xl md:text-2xl text-zlato-black/70 font-semibold max-w-3xl mx-auto">
+                {% trans "Get inspired with recipes and ideas featuring ZLATO olive oil" %}
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Recipe Carousel Section -->
+<section class="py-16 bg-zlato-cream overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+        <h2 class="text-3xl md:text-4xl font-black text-zlato-black mb-4 fade-in">{% trans "Recipe Inspiration" %}</h2>
+        <p class="text-lg text-zlato-black/70 fade-in">{% trans "Discover delicious ways to use ZLATO in your kitchen" %}</p>
+    </div>
+
+    <div class="relative">
+        <div class="flex gap-6 animate-scroll-recipes pl-8">
+            <!-- Recipe 1 -->
+            <div class="flex-shrink-0 w-80 group">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="/media/landing/recipe-1.jpg"
+                         alt="Mediterranean salad with olive oil"
+                         loading="lazy"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <p class="mt-4 text-center font-bold text-zlato-black">{% trans "Mediterranean Salad" %}</p>
+            </div>
+
+            <!-- Recipe 2 -->
+            <div class="flex-shrink-0 w-80 group">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="/media/landing/recipe-2.jpg"
+                         alt="Fresh bruschetta with olive oil drizzle"
+                         loading="lazy"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <p class="mt-4 text-center font-bold text-zlato-black">{% trans "Classic Bruschetta" %}</p>
+            </div>
+
+            <!-- Recipe 3 -->
+            <div class="flex-shrink-0 w-80 group">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="/media/landing/recipe-3.jpg"
+                         alt="Pasta with olive oil and herbs"
+                         loading="lazy"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <p class="mt-4 text-center font-bold text-zlato-black">{% trans "Aglio e Olio Pasta" %}</p>
+            </div>
+
+            <!-- Recipe 4 -->
+            <div class="flex-shrink-0 w-80 group">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="/media/landing/recipe-4.jpg"
+                         alt="Roasted vegetables with olive oil"
+                         loading="lazy"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <p class="mt-4 text-center font-bold text-zlato-black">{% trans "Roasted Vegetables" %}</p>
+            </div>
+
+            <!-- Recipe 5 -->
+            <div class="flex-shrink-0 w-80 group">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="/media/landing/recipe-5.jpg"
+                         alt="Grilled fish with olive oil"
+                         loading="lazy"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <p class="mt-4 text-center font-bold text-zlato-black">{% trans "Grilled Sea Bass" %}</p>
+            </div>
+
+            <!-- Recipe 6 -->
+            <div class="flex-shrink-0 w-80 group">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="/media/landing/recipe-6.jpg"
+                         alt="Caprese salad with olive oil"
+                         loading="lazy"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <p class="mt-4 text-center font-bold text-zlato-black">{% trans "Caprese Salad" %}</p>
+            </div>
+
+            <!-- Duplicate set for infinite scroll -->
+            <div class="flex-shrink-0 w-80 group">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="/media/landing/recipe-1.jpg"
+                         alt="Mediterranean salad with olive oil"
+                         loading="lazy"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <p class="mt-4 text-center font-bold text-zlato-black">{% trans "Mediterranean Salad" %}</p>
+            </div>
+
+            <div class="flex-shrink-0 w-80 group">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="/media/landing/recipe-2.jpg"
+                         alt="Fresh bruschetta with olive oil drizzle"
+                         loading="lazy"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <p class="mt-4 text-center font-bold text-zlato-black">{% trans "Classic Bruschetta" %}</p>
+            </div>
+
+            <div class="flex-shrink-0 w-80 group">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="/media/landing/recipe-3.jpg"
+                         alt="Pasta with olive oil and herbs"
+                         loading="lazy"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <p class="mt-4 text-center font-bold text-zlato-black">{% trans "Aglio e Olio Pasta" %}</p>
+            </div>
+
+            <div class="flex-shrink-0 w-80 group">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="/media/landing/recipe-4.jpg"
+                         alt="Roasted vegetables with olive oil"
+                         loading="lazy"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <p class="mt-4 text-center font-bold text-zlato-black">{% trans "Roasted Vegetables" %}</p>
+            </div>
+
+            <div class="flex-shrink-0 w-80 group">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="/media/landing/recipe-5.jpg"
+                         alt="Grilled fish with olive oil"
+                         loading="lazy"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <p class="mt-4 text-center font-bold text-zlato-black">{% trans "Grilled Sea Bass" %}</p>
+            </div>
+
+            <div class="flex-shrink-0 w-80 group">
+                <div class="rounded-2xl overflow-hidden shadow-lg">
+                    <img src="/media/landing/recipe-6.jpg"
+                         alt="Caprese salad with olive oil"
+                         loading="lazy"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <p class="mt-4 text-center font-bold text-zlato-black">{% trans "Caprese Salad" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tips Section -->
+<section class="py-16 bg-zlato-pink-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-black text-zlato-black mb-12 text-center fade-in">{% trans "Cooking Tips" %}</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="fade-in text-center">
+                <div class="text-6xl mb-4">🥗</div>
+                <h3 class="text-xl font-bold text-zlato-black mb-2">{% trans "For Salads" %}</h3>
+                <p class="text-zlato-black/70">{% trans "Use ZLATO Finishing for a bold, peppery kick that elevates fresh greens" %}</p>
+            </div>
+
+            <div class="fade-in text-center">
+                <div class="text-6xl mb-4">🍳</div>
+                <h3 class="text-xl font-bold text-zlato-black mb-2">{% trans "For Cooking" %}</h3>
+                <p class="text-zlato-black/70">{% trans "Use ZLATO Cooking for high-heat sautéing, roasting, and frying" %}</p>
+            </div>
+
+            <div class="fade-in text-center">
+                <div class="text-6xl mb-4">🍞</div>
+                <h3 class="text-xl font-bold text-zlato-black mb-2">{% trans "For Dipping" %}</h3>
+                <p class="text-zlato-black/70">{% trans "Squeeze ZLATO Finishing into a dish, add salt and herbs - perfect for crusty bread" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-zlato-cream">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+        <h2 class="text-3xl md:text-4xl font-black text-zlato-black mb-6">{% trans "Ready to Start Cooking?" %}</h2>
+        <p class="text-lg text-zlato-black/70 mb-8">{% trans "Get your bottle of ZLATO and transform your kitchen today" %}</p>
+        <a href="{% url 'products:shop' %}"
+           class="inline-block bg-zlato-olive text-white px-12 py-4 rounded-xl hover:bg-zlato-black transition-all duration-300 font-bold text-lg transform hover:scale-105 shadow-lg">
+            {% trans "Shop Now" %}
+        </a>
+    </div>
+</section>
+
+<style>
+    @keyframes scroll-recipes {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-320px * 6 - 24px * 5));
+        }
+    }
+
+    .animate-scroll-recipes {
+        animation: scroll-recipes 40s linear infinite;
+    }
+
+    .animate-scroll-recipes:hover {
+        animation-play-state: paused;
+    }
+</style>
+{% endblock %}

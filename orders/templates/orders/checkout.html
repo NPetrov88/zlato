@@ -1,0 +1,242 @@
+{% extends 'products/base.html' %}
+
+{% block title %}Checkout - ZLATO{% endblock %}
+
+{% block content %}
+<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h1 class="text-4xl font-black text-zlato-black mb-8">Checkout</h1>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Checkout Form -->
+        <div>
+            <form id="checkout-form" class="space-y-6">
+                {% csrf_token %}
+
+                <!-- Customer Information -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-zlato-black mb-4">Contact Information</h2>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-zlato-black font-semibold mb-2">Full Name *</label>
+                            <input type="text" name="customer_name" required
+                                   class="w-full px-4 py-2 border border-zlato-black/20 rounded-lg focus:outline-none focus:border-zlato-lime">
+                        </div>
+
+                        <div>
+                            <label class="block text-zlato-black font-semibold mb-2">Email *</label>
+                            <input type="email" name="customer_email" required
+                                   class="w-full px-4 py-2 border border-zlato-black/20 rounded-lg focus:outline-none focus:border-zlato-lime">
+                        </div>
+
+                        <div>
+                            <label class="block text-zlato-black font-semibold mb-2">Phone *</label>
+                            <input type="tel" name="customer_phone" required
+                                   class="w-full px-4 py-2 border border-zlato-black/20 rounded-lg focus:outline-none focus:border-zlato-lime">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping Address -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold text-zlato-black mb-4">Shipping Address</h2>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-zlato-black font-semibold mb-2">Street Address *</label>
+                            <input type="text" name="shipping_address" required
+                                   class="w-full px-4 py-2 border border-zlato-black/20 rounded-lg focus:outline-none focus:border-zlato-lime">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-zlato-black font-semibold mb-2">City *</label>
+                                <input type="text" name="shipping_city" required
+                                       class="w-full px-4 py-2 border border-zlato-black/20 rounded-lg focus:outline-none focus:border-zlato-lime">
+                            </div>
+
+                            <div>
+                                <label class="block text-zlato-black font-semibold mb-2">Postal Code *</label>
+                                <input type="text" name="shipping_postal_code" required
+                                       class="w-full px-4 py-2 border border-zlato-black/20 rounded-lg focus:outline-none focus:border-zlato-lime">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-zlato-black font-semibold mb-2">Region (Optional)</label>
+                            <input type="text" name="shipping_region"
+                                   class="w-full px-4 py-2 border border-zlato-black/20 rounded-lg focus:outline-none focus:border-zlato-lime">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Order Summary -->
+        <div>
+            <div class="bg-white p-6 rounded-lg shadow-lg sticky top-24">
+                <h2 class="text-2xl font-bold text-zlato-black mb-4">Order Summary</h2>
+
+                <!-- Cart Items -->
+                <div class="space-y-3 mb-6">
+                    {% for item in cart.items.all %}
+                    <div class="flex justify-between text-zlato-black/70">
+                        <span>{{ item.quantity }}x {{ item.product.name }}</span>
+                        <span class="font-semibold">{{ item.total_price }} EUR</span>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="border-t border-zlato-black/10 pt-4 mb-4">
+                    <!-- Discount Code -->
+                    <div class="mb-4" x-data="{ showDiscount: {% if discount_code %}false{% else %}true{% endif %} }">
+                        {% if discount_code %}
+                        <div class="flex items-center justify-between bg-zlato-lime/20 p-3 rounded-lg">
+                            <span class="text-zlato-black font-semibold">
+                                Code: {{ discount_code.code }} (-{{ discount_code.discount_percentage }}%)
+                            </span>
+                            <button type="button" @click="removeDiscount()" class="text-red-500 hover:text-red-700">
+                                Remove
+                            </button>
+                        </div>
+                        {% else %}
+                        <div x-show="showDiscount">
+                            <label class="block text-zlato-black font-semibold mb-2">Discount Code</label>
+                            <div class="flex gap-2">
+                                <input type="text" id="discount-code-input"
+                                       class="flex-1 px-4 py-2 border border-zlato-black/20 rounded-lg focus:outline-none focus:border-zlato-lime"
+                                       placeholder="Enter code">
+                                <button type="button" onclick="applyDiscount()"
+                                        class="px-6 py-2 bg-zlato-black text-white rounded-lg hover:bg-zlato-lime hover:text-zlato-black transition font-bold">
+                                    Apply
+                                </button>
+                            </div>
+                            <div id="discount-message" class="mt-2 text-sm"></div>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Totals -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-zlato-black/70">
+                            <span>Subtotal</span>
+                            <span>{{ subtotal }} EUR</span>
+                        </div>
+                        <div class="flex justify-between text-zlato-black/70">
+                            <span>Shipping</span>
+                            <span>{{ shipping_cost }} EUR</span>
+                        </div>
+                        {% if discount_amount > 0 %}
+                        <div class="flex justify-between text-zlato-lime">
+                            <span>Discount</span>
+                            <span>-{{ discount_amount }} EUR</span>
+                        </div>
+                        {% endif %}
+                        <div class="flex justify-between text-2xl font-black text-zlato-black pt-2 border-t border-zlato-black/10">
+                            <span>Total</span>
+                            <span>{{ total }} EUR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checkout Button -->
+                <button type="button" id="checkout-button"
+                        class="w-full bg-zlato-black text-white py-4 rounded-lg hover:bg-zlato-lime hover:text-zlato-black transition font-bold text-lg">
+                    Pay with Stripe
+                </button>
+
+                <div id="error-message" class="mt-4 text-red-500 text-sm"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stripe.js -->
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    const stripe = Stripe('{{ stripe_public_key }}');
+
+    document.getElementById('checkout-button').addEventListener('click', async () => {
+        const button = document.getElementById('checkout-button');
+        const errorDiv = document.getElementById('error-message');
+
+        button.disabled = true;
+        button.textContent = 'Processing...';
+        errorDiv.textContent = '';
+
+        const form = document.getElementById('checkout-form');
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch('{% url "orders:create_checkout_session" %}', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                throw new Error(data.error);
+            }
+
+            // Redirect to Stripe Checkout
+            const result = await stripe.redirectToCheckout({
+                sessionId: data.sessionId
+            });
+
+            if (result.error) {
+                throw new Error(result.error.message);
+            }
+        } catch (error) {
+            errorDiv.textContent = error.message;
+            button.disabled = false;
+            button.textContent = 'Pay with Stripe';
+        }
+    });
+
+    async function applyDiscount() {
+        const input = document.getElementById('discount-code-input');
+        const messageDiv = document.getElementById('discount-message');
+        const code = input.value.trim();
+
+        if (!code) return;
+
+        try {
+            const formData = new FormData();
+            formData.append('code', code);
+            formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+            const response = await fetch('{% url "orders:apply_discount" %}', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                messageDiv.className = 'mt-2 text-sm text-zlato-lime';
+                messageDiv.textContent = data.message;
+                setTimeout(() => window.location.reload(), 1000);
+            } else {
+                messageDiv.className = 'mt-2 text-sm text-red-500';
+                messageDiv.textContent = data.message;
+            }
+        } catch (error) {
+            messageDiv.className = 'mt-2 text-sm text-red-500';
+            messageDiv.textContent = 'Error applying discount code';
+        }
+    }
+
+    async function removeDiscount() {
+        const formData = new FormData();
+        formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+        await fetch('{% url "orders:remove_discount" %}', {
+            method: 'POST',
+            body: formData,
+        });
+
+        window.location.reload();
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,159 @@
+{% extends 'products/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Returns Policy" %} - ZLATO{% endblock %}
+
+{% block content %}
+<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Header -->
+    <div class="text-center mb-12 fade-in">
+        <h1 class="text-6xl md:text-7xl font-black text-zlato-black mb-6 leading-tight">{% trans "Returns Policy" %}</h1>
+        <p class="text-xl text-zlato-black/70 font-semibold max-w-2xl mx-auto">
+            {% trans "We want you to love ZLATO. If you don't, we'll make it right." %}
+        </p>
+    </div>
+
+    <div class="space-y-8 fade-in">
+        <!-- Return Window -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-zlato-pink">
+            <h2 class="text-3xl font-black text-zlato-black mb-6">{% trans "Return Window" %}</h2>
+            <div class="space-y-4 text-zlato-black/80 leading-relaxed">
+                <p>
+                    {% trans "You have 14 days from the date of delivery to return your ZLATO products for a full refund." %}
+                </p>
+                <div class="bg-zlato-lime/20 rounded-xl p-6 border-2 border-zlato-lime">
+                    <p class="font-bold text-zlato-black text-xl">⏰ {% trans "14-Day Return Period" %}</p>
+                    <p class="text-sm mt-2">{% trans "No questions asked. We stand behind our products." %}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Return Conditions -->
+        <div class="bg-zlato-pink-light rounded-2xl p-8 border-2 border-zlato-pink">
+            <h2 class="text-3xl font-black text-zlato-black mb-6">{% trans "Return Conditions" %}</h2>
+            <div class="space-y-4 text-zlato-black/80 leading-relaxed">
+                <p>{% trans "To be eligible for a return, your items must:" %}</p>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                        <span class="text-zlato-lime font-bold text-xl">✓</span>
+                        <span>{% trans "Be unopened and unused" %}</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-zlato-lime font-bold text-xl">✓</span>
+                        <span>{% trans "Be in their original packaging" %}</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-zlato-lime font-bold text-xl">✓</span>
+                        <span>{% trans "Be returned within 14 days of delivery" %}</span>
+                    </li>
+                </ul>
+                <p class="text-sm mt-4 bg-white rounded-lg p-4 border-2 border-zlato-pink">
+                    <strong>{% trans "Note" %}:</strong> {% trans "Due to food safety regulations, we cannot accept returns of opened olive oil bottles." %}
+                </p>
+            </div>
+        </div>
+
+        <!-- How to Return -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-zlato-pink">
+            <h2 class="text-3xl font-black text-zlato-black mb-6">{% trans "How to Return" %}</h2>
+            <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-zlato-lime rounded-lg flex items-center justify-center flex-shrink-0 font-black text-xl">
+                        1
+                    </div>
+                    <div>
+                        <p class="font-bold text-zlato-black mb-1">{% trans "Contact Us" %}</p>
+                        <p class="text-zlato-black/80">{% trans "Email us with your order number and reason for return" %}</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-zlato-lime rounded-lg flex items-center justify-center flex-shrink-0 font-black text-xl">
+                        2
+                    </div>
+                    <div>
+                        <p class="font-bold text-zlato-black mb-1">{% trans "Get Return Authorization" %}</p>
+                        <p class="text-zlato-black/80">{% trans "We'll send you return instructions and a return authorization number" %}</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-zlato-lime rounded-lg flex items-center justify-center flex-shrink-0 font-black text-xl">
+                        3
+                    </div>
+                    <div>
+                        <p class="font-bold text-zlato-black mb-1">{% trans "Ship It Back" %}</p>
+                        <p class="text-zlato-black/80">{% trans "Pack your items securely and ship them back to us" %}</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-zlato-lime rounded-lg flex items-center justify-center flex-shrink-0 font-black text-xl">
+                        4
+                    </div>
+                    <div>
+                        <p class="font-bold text-zlato-black mb-1">{% trans "Get Your Refund" %}</p>
+                        <p class="text-zlato-black/80">{% trans "Once we receive your return, we'll process your refund within 5-7 business days" %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Refund Details -->
+        <div class="bg-zlato-pink-light rounded-2xl p-8 border-2 border-zlato-pink">
+            <h2 class="text-3xl font-black text-zlato-black mb-6">{% trans "Refund Details" %}</h2>
+            <div class="space-y-4 text-zlato-black/80 leading-relaxed">
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                        <span class="text-zlato-black font-bold">•</span>
+                        <span>{% trans "Refunds are processed to your original payment method" %}</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-zlato-black font-bold">•</span>
+                        <span>{% trans "Shipping costs are non-refundable (unless the product is defective)" %}</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-zlato-black font-bold">•</span>
+                        <span>{% trans "Return shipping costs are the customer's responsibility" %}</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-zlato-black font-bold">•</span>
+                        <span>{% trans "Refunds typically appear in your account within 5-7 business days" %}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Damaged or Defective -->
+        <div class="bg-zlato-black text-white rounded-2xl p-8">
+            <h2 class="text-3xl font-black mb-4">{% trans "Damaged or Defective Products?" %}</h2>
+            <p class="opacity-90 mb-6">
+                {% trans "If your ZLATO arrives damaged or defective, we'll replace it immediately at no cost to you. Just contact us within 48 hours of delivery." %}
+            </p>
+            <div class="bg-white/10 rounded-lg p-4">
+                <p class="text-sm">
+                    {% trans "Please include photos of the damage/defect with your email - this helps us improve our packaging and quality control." %}
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-zlato-pink text-center">
+            <h2 class="text-2xl font-black text-zlato-black mb-4">{% trans "Need to Start a Return?" %}</h2>
+            <p class="text-zlato-black/80 mb-6">
+                {% trans "Get in touch with our team and we'll guide you through the process." %}
+            </p>
+            <a href="{% url 'products:contact' %}"
+               class="inline-block bg-zlato-lime text-zlato-black px-8 py-3 rounded-lg hover:bg-zlato-black hover:text-white transition-all duration-300 font-bold">
+                {% trans "Contact Us About Returns" %}
+            </a>
+        </div>
+
+        <!-- Customer Satisfaction -->
+        <div class="bg-zlato-lime/20 rounded-2xl p-8 border-2 border-zlato-lime text-center">
+            <span class="text-5xl mb-4 block">💚</span>
+            <h2 class="text-2xl font-black text-zlato-black mb-4">{% trans "Your Satisfaction is Our Priority" %}</h2>
+            <p class="text-zlato-black/80">
+                {% trans "If you're not 100% happy with your ZLATO purchase, let us know. We'll do whatever it takes to make it right." %}
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

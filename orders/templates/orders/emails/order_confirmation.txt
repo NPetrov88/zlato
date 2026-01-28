@@ -1,0 +1,42 @@
+ZLATO - Order Confirmation
+
+Hi {{ order.customer_name }},
+
+Thank you for your order! We're excited to get your premium Greek olive oil to you.
+
+ORDER DETAILS
+═══════════════════════════════════════
+Order Number: #{{ order.order_number }}
+Order Date: {{ order.created_at|date:"F d, Y H:i" }}
+Payment Status: Paid
+
+ORDER ITEMS
+═══════════════════════════════════════
+{% for item in order.items.all %}
+{{ item.product_name }}
+  Quantity: {{ item.quantity }} x {{ item.product_price }} BGN = {{ item.total_price }} BGN
+{% endfor %}
+
+Subtotal: {{ order.subtotal }} BGN
+Shipping: {{ order.shipping_cost }} BGN
+{% if order.discount_amount > 0 %}Discount ({{ order.discount_code.code }}): -{{ order.discount_amount }} BGN
+{% endif %}
+─────────────────────────────────────
+TOTAL: {{ order.total }} BGN
+═══════════════════════════════════════
+
+SHIPPING ADDRESS
+═══════════════════════════════════════
+{{ order.customer_name }}
+{{ order.shipping_address }}
+{{ order.shipping_city }}, {{ order.shipping_postal_code }}
+{% if order.shipping_region %}{{ order.shipping_region }}
+{% endif %}Bulgaria
+
+We'll send you another email when your order ships with tracking information.
+
+Questions? Contact us at {{ admin_email }}
+
+──────────────────────────────────────
+ZLATO - Premium Greek olive oil for modern kitchens
+© {% now "Y" %} ZLATO. All rights reserved.

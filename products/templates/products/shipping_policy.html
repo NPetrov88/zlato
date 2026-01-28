@@ -1,0 +1,121 @@
+{% extends 'products/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Shipping Policy" %} - ZLATO{% endblock %}
+
+{% block content %}
+<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Header -->
+    <div class="text-center mb-12 fade-in">
+        <h1 class="text-6xl md:text-7xl font-black text-zlato-black mb-6 leading-tight">{% trans "Shipping Policy" %}</h1>
+        <p class="text-xl text-zlato-black/70 font-semibold max-w-2xl mx-auto">
+            {% trans "Everything you need to know about ZLATO delivery" %}
+        </p>
+    </div>
+
+    <div class="space-y-8 fade-in">
+        <!-- Shipping Areas -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-zlato-pink">
+            <h2 class="text-3xl font-black text-zlato-black mb-6">{% trans "Where We Ship" %}</h2>
+            <div class="space-y-4 text-zlato-black/80 leading-relaxed">
+                <p>
+                    {% trans "We currently ship throughout Bulgaria. Whether you're in Sofia, Plovdiv, Varna, or a smaller town - we'll get ZLATO to your door." %}
+                </p>
+                <div class="bg-zlato-pink-light rounded-xl p-6 border-2 border-zlato-pink">
+                    <p class="font-bold text-zlato-black mb-2">🇧🇬 {% trans "Bulgaria-Wide Delivery" %}</p>
+                    <p class="text-sm">{% trans "We deliver to all cities and regions across Bulgaria" %}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shipping Costs -->
+        <div class="bg-zlato-pink-light rounded-2xl p-8 border-2 border-zlato-pink">
+            <h2 class="text-3xl font-black text-zlato-black mb-6">{% trans "Shipping Costs" %}</h2>
+            <div class="space-y-4 text-zlato-black/80 leading-relaxed">
+                <p>
+                    {% trans "Shipping costs are calculated based on your delivery location:" %}
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div class="bg-white rounded-lg p-4 border-2 border-zlato-pink">
+                        <p class="font-bold text-zlato-black">{% trans "Sofia" %}</p>
+                        <p class="text-2xl font-black text-zlato-lime">5 EUR</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border-2 border-zlato-pink">
+                        <p class="font-bold text-zlato-black">{% trans "Plovdiv" %}</p>
+                        <p class="text-2xl font-black text-zlato-lime">6 EUR</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border-2 border-zlato-pink">
+                        <p class="font-bold text-zlato-black">{% trans "Varna" %}</p>
+                        <p class="text-2xl font-black text-zlato-lime">7 EUR</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border-2 border-zlato-pink">
+                        <p class="font-bold text-zlato-black">{% trans "Other Cities" %}</p>
+                        <p class="text-2xl font-black text-zlato-lime">8 EUR</p>
+                    </div>
+                </div>
+                <p class="text-sm mt-4">
+                    {% trans "Shipping cost is calculated automatically at checkout based on your delivery address." %}
+                </p>
+            </div>
+        </div>
+
+        <!-- Delivery Time -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-zlato-pink">
+            <h2 class="text-3xl font-black text-zlato-black mb-6">{% trans "Delivery Time" %}</h2>
+            <div class="space-y-4 text-zlato-black/80 leading-relaxed">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-zlato-lime rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl">📦</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-zlato-black mb-1">{% trans "Processing Time" %}</p>
+                        <p>{% trans "We process orders within 1-2 business days after payment confirmation." %}</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-zlato-lime rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl">🚚</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-zlato-black mb-1">{% trans "Delivery Time" %}</p>
+                        <p>{% trans "Standard delivery takes 2-3 business days after shipping." %}</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-zlato-lime rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl">📧</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-zlato-black mb-1">{% trans "Tracking" %}</p>
+                        <p>{% trans "You'll receive a tracking number via email when your order ships." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Tracking -->
+        <div class="bg-zlato-black text-white rounded-2xl p-8">
+            <h2 class="text-3xl font-black mb-4">{% trans "Track Your Order" %}</h2>
+            <p class="opacity-90 mb-6">
+                {% trans "Want to know where your ZLATO is? Use our order tracking tool to check the status of your delivery." %}
+            </p>
+            <a href="{% url 'orders:track' %}"
+               class="inline-block bg-zlato-lime text-zlato-black px-8 py-3 rounded-lg hover:bg-white transition-all duration-300 font-bold">
+                {% trans "Track Order" %}
+            </a>
+        </div>
+
+        <!-- Contact -->
+        <div class="bg-zlato-pink-light rounded-2xl p-8 border-2 border-zlato-pink text-center">
+            <h2 class="text-2xl font-black text-zlato-black mb-4">{% trans "Questions About Shipping?" %}</h2>
+            <p class="text-zlato-black/80 mb-6">
+                {% trans "Our team is here to help with any delivery questions or concerns." %}
+            </p>
+            <a href="{% url 'products:contact' %}"
+               class="inline-block bg-zlato-black text-white px-8 py-3 rounded-lg hover:bg-zlato-lime hover:text-zlato-black transition-all duration-300 font-bold">
+                {% trans "Contact Us" %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

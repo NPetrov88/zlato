@@ -1,0 +1,68 @@
+{% extends 'products/base.html' %}
+
+{% block title %}Order Confirmed - ZLATO{% endblock %}
+
+{% block content %}
+<section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+    <!-- Success Icon -->
+    <div class="mb-8 fade-in">
+        <svg class="w-24 h-24 mx-auto text-zlato-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+    </div>
+
+    <h1 class="text-5xl font-black text-zlato-black mb-4 fade-in">Thank You!</h1>
+    <p class="text-xl text-zlato-black/70 mb-8 fade-in">Your order has been confirmed</p>
+
+    <!-- Order Details -->
+    <div class="bg-white rounded-lg shadow-lg p-8 text-left mb-8 fade-in">
+        <h2 class="text-2xl font-bold text-zlato-black mb-6">Order Details</h2>
+
+        <div class="space-y-3 mb-6">
+            <div class="flex justify-between">
+                <span class="text-zlato-black/70">Order Number:</span>
+                <span class="font-bold text-zlato-black">{{ order.order_number }}</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-zlato-black/70">Email:</span>
+                <span class="font-semibold">{{ order.customer_email }}</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-zlato-black/70">Total Paid:</span>
+                <span class="text-2xl font-black text-zlato-black">{{ order.total }} EUR</span>
+            </div>
+        </div>
+
+        <div class="border-t border-zlato-black/10 pt-6">
+            <h3 class="font-bold text-zlato-black mb-3">Shipping To:</h3>
+            <p class="text-zlato-black/70">
+                {{ order.customer_name }}<br>
+                {{ order.shipping_address }}<br>
+                {{ order.shipping_city }}, {{ order.shipping_postal_code }}
+            </p>
+        </div>
+
+        <div class="border-t border-zlato-black/10 pt-6 mt-6">
+            <h3 class="font-bold text-zlato-black mb-3">Items Ordered:</h3>
+            <div class="space-y-2">
+                {% for item in order.items.all %}
+                <div class="flex justify-between text-zlato-black/70">
+                    <span>{{ item.quantity }}x {{ item.product_name }}</span>
+                    <span class="font-semibold">{{ item.total_price }} EUR</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-zlato-lime/20 p-6 rounded-lg mb-8 fade-in">
+        <p class="text-zlato-black font-semibold">
+            📧 A confirmation email has been sent to <span class="font-bold">{{ order.customer_email }}</span>
+        </p>
+    </div>
+
+    <a href="/" class="inline-block bg-zlato-black text-white px-8 py-4 rounded-lg hover:bg-zlato-lime hover:text-zlato-black transition font-bold text-lg">
+        Continue Shopping
+    </a>
+</section>
+{% endblock %}

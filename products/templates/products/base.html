@@ -1,0 +1,145 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ZLATO - {% trans "Premium Products" %}{% endblock %}</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js for interactivity -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'zlato-pink': '#C797A3',
+                        'zlato-lime': '#B8C944',
+                        'zlato-black': '#000000',
+                        'zlato-pink-light': '#E8D4D8',
+                        'zlato-pink-dark': '#A67582',
+                        'zlato-cream': '#FAF7F2',
+                        'zlato-cream-dark': '#f0ebe3',
+                        'zlato-olive': '#7d7f47',
+                        'zlato-text-dark': '#2d2424',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Fade-in animation for scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</head>
+<body class="bg-zlato-pink-light">
+    <!-- Header -->
+    <header class="bg-zlato-cream shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1">
+            <div class="flex justify-between items-center">
+                <a href="{% url 'homepage' %}" class="relative z-50 -ml-4 sm:-ml-6 lg:-ml-8">
+                    <img src="/media/landing/zlato-logo-new.png"
+                         alt="ZLATO"
+                         class="h-40 md:h-48 hover:opacity-90 transition-opacity">
+                </a>
+                <div class="flex gap-6 items-center">
+                    <a href="{% url 'homepage' %}" class="text-zlato-text-dark hover:text-zlato-olive transition font-semibold">{% trans "Discover" %}</a>
+                    <a href="{% url 'products:shop' %}" class="text-zlato-text-dark hover:text-zlato-olive transition font-semibold">{% trans "Shop" %}</a>
+                    <a href="{% url 'products:about' %}" class="text-zlato-text-dark hover:text-zlato-olive transition font-semibold">{% trans "Let's Cook" %}</a>
+                    <a href="{% url 'products:contact' %}" class="text-zlato-text-dark hover:text-zlato-olive transition font-semibold">{% trans "Contact" %}</a>
+                    <a href="{% url 'orders:track' %}" class="text-zlato-text-dark hover:text-zlato-olive transition font-semibold">{% trans "Track Order" %}</a>
+                    <a href="/admin/" class="text-zlato-text-dark hover:text-zlato-olive transition font-semibold">Admin</a>
+
+                    <!-- Language Switcher -->
+                    <div x-data="{ open: false }" class="relative">
+                        <button @click="open = !open" class="text-zlato-text-dark hover:text-zlato-olive transition font-semibold flex items-center gap-1" aria-label="{% trans 'Select language' %}">
+                            {{ LANGUAGE_CODE|upper }}
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div x-show="open" @click.away="open = false"
+                             class="absolute right-0 mt-2 w-32 bg-white border border-zlato-text-dark/20 rounded-lg shadow-lg py-2 z-50">
+                            <form action="{% url 'set_language' %}" method="post">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="{{ request.path }}">
+                                <button type="submit" name="language" value="en"
+                                        class="block w-full text-left px-4 py-2 text-zlato-text-dark hover:bg-zlato-cream">English</button>
+                                <button type="submit" name="language" value="bg"
+                                        class="block w-full text-left px-4 py-2 text-zlato-text-dark hover:bg-zlato-cream">Български</button>
+                            </form>
+                        </div>
+                    </div>
+                    <a href="{% url 'cart:view' %}"
+                       x-data="{ bounce: false }"
+                       @cart-updated.window="bounce = true; setTimeout(() => bounce = false, 600)"
+                       :class="{ 'animate-bounce': bounce }"
+                       class="relative text-zlato-text-dark hover:text-zlato-olive transition"
+                       aria-label="{% trans 'Shopping cart' %}">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        {% if cart_total_items > 0 %}
+                        <span class="absolute -top-2 -right-2 bg-zlato-olive text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                            {{ cart_total_items }}
+                        </span>
+                        {% endif %}
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-zlato-cream text-zlato-text-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center">
+                <img src="/media/landing/zlato-logo-new.png"
+                     alt="ZLATO"
+                     class="h-40 md:h-48 mx-auto opacity-90">
+                <p class="text-sm opacity-80 -mt-12">{% trans "Premium Greek olive oil for modern kitchens" %}</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

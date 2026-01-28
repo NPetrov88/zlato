@@ -1,0 +1,195 @@
+{% extends 'products/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Track Your Order" %} - ZLATO{% endblock %}
+
+{% block content %}
+<section class="bg-zlato-cream min-h-screen py-24">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Hero Section -->
+    <div class="text-center mb-16 fade-in">
+        <h1 class="text-5xl md:text-6xl font-black text-zlato-black mb-6 leading-tight">{% trans "Track Your Order" %}</h1>
+        <p class="text-xl text-zlato-black/70 font-semibold max-w-2xl mx-auto">
+            {% trans "Enter your order number to check the status of your delivery" %}
+        </p>
+    </div>
+
+    <!-- Order Number Lookup Form -->
+    {% if not order %}
+    <div class="fade-in mb-12">
+        <div class="bg-white rounded-2xl p-8 md:p-12 shadow-lg max-w-2xl mx-auto">
+            <h2 class="text-3xl font-black text-zlato-black mb-6 text-center">{% trans "Find Your Order" %}</h2>
+
+            {% if error %}
+            <div class="bg-red-100 border-2 border-red-400 text-red-700 rounded-xl px-6 py-4 mb-6 font-semibold">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            <form method="post" action="{% url 'orders:track' %}" class="space-y-6">
+                {% csrf_token %}
+
+                <div>
+                    <label for="order_number" class="block text-sm font-bold text-zlato-black mb-2">
+                        {% trans "Order Number" %} <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text"
+                           id="order_number"
+                           name="order_number"
+                           required
+                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-zlato-olive focus:outline-none transition font-semibold text-center text-lg uppercase"
+                           placeholder="{% trans 'e.g., ABC123DEF456' %}">
+                    <p class="text-sm text-zlato-black/60 mt-2 text-center">
+                        {% trans "You can find your order number in the confirmation email" %}
+                    </p>
+                </div>
+
+                <button type="submit"
+                        class="w-full bg-zlato-olive text-white py-4 rounded-xl hover:bg-zlato-black transition-all duration-300 font-black text-lg shadow-lg">
+                    {% trans "Track Order" %}
+                </button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Order Details (if found) -->
+    {% if order %}
+    <div class="fade-in space-y-6">
+        <!-- Status Card -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-zlato-pink">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-3xl font-black text-zlato-black">{% trans "Order" %} #{{ order.order_number }}</h2>
+                <span class="px-6 py-3 rounded-xl font-bold text-lg
+                    {% if order.status == 'pending' %}bg-gray-200 text-gray-700
+                    {% elif order.status == 'paid' %}bg-green-100 text-green-700 border-2 border-green-300
+                    {% elif order.status == 'processing' %}bg-blue-100 text-blue-700 border-2 border-blue-300
+                    {% elif order.status == 'shipped' %}bg-zlato-olive/20 text-zlato-black border-2 border-zlato-olive
+                    {% elif order.status == 'delivered' %}bg-green-100 text-green-700 border-2 border-green-300
+                    {% else %}bg-red-100 text-red-700 border-2 border-red-300
+                    {% endif %}">
+                    {{ order.get_status_display }}
+                </span>
+            </div>
+
+            <!-- Order Timeline -->
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0
+                        {% if order.created_at %}bg-zlato-olive text-white{% else %}bg-gray-300 text-gray-600{% endif %}">
+                        {% if order.created_at %}✓{% else %}•{% endif %}
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-bold text-zlato-black">{% trans "Order Placed" %}</p>
+                        {% if order.created_at %}
+                        <p class="text-zlato-black/60 text-sm">{{ order.created_at|date:"F d, Y H:i" }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0
+                        {% if order.paid_at %}bg-zlato-olive text-white{% else %}bg-gray-300 text-gray-600{% endif %}">
+                        {% if order.paid_at %}✓{% else %}•{% endif %}
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-bold text-zlato-black">{% trans "Payment Confirmed" %}</p>
+                        {% if order.paid_at %}
+                        <p class="text-zlato-black/60 text-sm">{{ order.paid_at|date:"F d, Y H:i" }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0
+                        {% if order.status in 'processing,shipped,delivered' %}bg-zlato-olive text-white{% else %}bg-gray-300 text-gray-600{% endif %}">
+                        {% if order.status in 'processing,shipped,delivered' %}✓{% else %}•{% endif %}
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-bold text-zlato-black">{% trans "Processing" %}</p>
+                        <p class="text-zlato-black/60 text-sm">{% trans "Preparing your order" %}</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0
+                        {% if order.shipped_at %}bg-zlato-olive text-white{% else %}bg-gray-300 text-gray-600{% endif %}">
+                        {% if order.shipped_at %}✓{% else %}•{% endif %}
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-bold text-zlato-black">{% trans "Shipped" %}</p>
+                        {% if order.shipped_at %}
+                        <p class="text-zlato-black/60 text-sm">{{ order.shipped_at|date:"F d, Y" }}</p>
+                        {% if order.tracking_number %}
+                        <p class="text-zlato-black font-semibold mt-1">{% trans "Tracking" %}: {{ order.tracking_number }}</p>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0
+                        {% if order.status == 'delivered' %}bg-zlato-olive text-white{% else %}bg-gray-300 text-gray-600{% endif %}">
+                        {% if order.status == 'delivered' %}✓{% else %}•{% endif %}
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-bold text-zlato-black">{% trans "Delivered" %}</p>
+                        <p class="text-zlato-black/60 text-sm">{% trans "Enjoy your ZLATO!" %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Items -->
+        <div class="bg-zlato-pink-light rounded-2xl p-8 border-2 border-zlato-pink">
+            <h3 class="text-2xl font-black text-zlato-black mb-6">{% trans "Order Items" %}</h3>
+            <div class="space-y-4">
+                {% for item in order.items.all %}
+                <div class="flex items-center justify-between py-3 border-b border-zlato-pink">
+                    <div>
+                        <p class="font-bold text-zlato-black">{{ item.product_name }}</p>
+                        <p class="text-zlato-black/60 text-sm">{% trans "Quantity" %}: {{ item.quantity }}</p>
+                    </div>
+                    <p class="font-bold text-zlato-black">{{ item.total_price }} EUR</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Shipping Address -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-zlato-pink">
+            <h3 class="text-2xl font-black text-zlato-black mb-4">{% trans "Shipping Address" %}</h3>
+            <p class="text-zlato-black/80 leading-relaxed">
+                {{ order.customer_name }}<br>
+                {{ order.shipping_address }}<br>
+                {{ order.shipping_city }}, {{ order.shipping_postal_code }}<br>
+                {% if order.shipping_region %}{{ order.shipping_region }}<br>{% endif %}
+                Bulgaria
+            </p>
+        </div>
+
+        <!-- Track Another Order -->
+        <div class="text-center pt-8">
+            <a href="{% url 'orders:track' %}"
+               class="inline-block bg-zlato-cream text-zlato-black px-8 py-3 rounded-lg hover:bg-zlato-olive hover:text-white transition-all duration-300 font-bold">
+                {% trans "Track Another Order" %}
+            </a>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Help Section -->
+    {% if not order %}
+    <div class="fade-in text-center mt-12">
+        <p class="text-zlato-black/70 font-semibold mb-4">
+            {% trans "Need help with your order?" %}
+        </p>
+        <a href="{% url 'products:contact' %}"
+           class="inline-block bg-zlato-olive text-white px-8 py-3 rounded-lg hover:bg-zlato-black transition-all duration-300 font-bold">
+            {% trans "Contact Us" %}
+        </a>
+    </div>
+    {% endif %}
+</div>
+</section>
+{% endblock %}

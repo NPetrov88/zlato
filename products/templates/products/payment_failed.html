@@ -1,0 +1,90 @@
+{% extends 'products/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Payment Failed" %} - ZLATO{% endblock %}
+
+{% block content %}
+<section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center fade-in">
+        <!-- Error Icon -->
+        <div class="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-8">
+            <svg class="w-12 h-12 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </div>
+
+        <!-- Error Message -->
+        <h1 class="text-5xl md:text-6xl font-black text-zlato-black mb-6 leading-tight">
+            {% trans "Payment Failed" %}
+        </h1>
+        <p class="text-xl text-zlato-black/70 font-semibold mb-8 max-w-2xl mx-auto">
+            {% trans "We couldn't process your payment. Don't worry - no charges were made to your card." %}
+        </p>
+
+        <!-- What Happened Section -->
+        <div class="bg-red-50 rounded-2xl p-8 border-2 border-red-200 mb-8 text-left">
+            <h2 class="text-2xl font-black text-zlato-black mb-4">{% trans "What happened?" %}</h2>
+            <ul class="space-y-3 text-zlato-black/80">
+                <li class="flex items-start gap-3">
+                    <span class="text-red-500 font-bold">•</span>
+                    <span>{% trans "Your payment could not be processed by our payment provider" %}</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-red-500 font-bold">•</span>
+                    <span>{% trans "No money has been deducted from your account" %}</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-red-500 font-bold">•</span>
+                    <span>{% trans "Your cart items are still saved and ready when you're ready to try again" %}</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Possible Reasons Section -->
+        <div class="bg-zlato-pink-light rounded-2xl p-8 border-2 border-zlato-pink mb-8 text-left">
+            <h2 class="text-2xl font-black text-zlato-black mb-4">{% trans "Common reasons for payment failure" %}</h2>
+            <ul class="space-y-3 text-zlato-black/80">
+                <li class="flex items-start gap-3">
+                    <span class="text-zlato-black font-bold">✓</span>
+                    <span>{% trans "Incorrect card details or expired card" %}</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-zlato-black font-bold">✓</span>
+                    <span>{% trans "Insufficient funds in your account" %}</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-zlato-black font-bold">✓</span>
+                    <span>{% trans "Your bank declined the transaction (try contacting them)" %}</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-zlato-black font-bold">✓</span>
+                    <span>{% trans "Network connection interrupted during payment" %}</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="space-y-4">
+            <a href="{% url 'orders:checkout' %}"
+               class="block w-full bg-zlato-black text-white py-4 rounded-xl hover:bg-zlato-lime hover:text-zlato-black transition-all duration-300 font-black text-lg transform hover:scale-105 shadow-lg">
+                {% trans "Try Payment Again" %}
+            </a>
+            <a href="{% url 'cart:view' %}"
+               class="block w-full bg-white text-zlato-black border-2 border-zlato-black py-4 rounded-xl hover:bg-zlato-black hover:text-white transition-all duration-300 font-bold text-lg">
+                {% trans "Review Cart" %}
+            </a>
+            <a href="{% url 'products:contact' %}"
+               class="block w-full bg-zlato-pink-light text-zlato-black border-2 border-zlato-pink py-4 rounded-xl hover:bg-zlato-pink transition-all duration-300 font-bold text-lg">
+                {% trans "Contact Support" %}
+            </a>
+        </div>
+
+        <!-- Back to Shop -->
+        <div class="mt-12">
+            <a href="{% url 'homepage' %}" class="text-zlato-black hover:text-zlato-lime transition font-bold">
+                ← {% trans "Back to Shop" %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

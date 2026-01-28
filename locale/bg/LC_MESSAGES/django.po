@@ -1,0 +1,380 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-16 22:01+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: orders/templates/orders/track.html:4 orders/templates/orders/track.html:10
+msgid "Track Your Order"
+msgstr ""
+
+#: orders/templates/orders/track.html:12
+msgid "Enter your order number to check the status of your delivery"
+msgstr ""
+
+#: orders/templates/orders/track.html:20
+msgid "Find Your Order"
+msgstr ""
+
+#: orders/templates/orders/track.html:33
+msgid "Order Number"
+msgstr ""
+
+#: orders/templates/orders/track.html:40
+msgid "e.g., ABC123DEF456"
+msgstr ""
+
+#: orders/templates/orders/track.html:42
+msgid "You can find your order number in the confirmation email"
+msgstr ""
+
+#: orders/templates/orders/track.html:48
+#: products/templates/products/base.html:75
+msgid "Track Order"
+msgstr ""
+
+#: orders/templates/orders/track.html:61
+msgid "Order"
+msgstr ""
+
+#: orders/templates/orders/track.html:82
+msgid "Order Placed"
+msgstr ""
+
+#: orders/templates/orders/track.html:95
+msgid "Payment Confirmed"
+msgstr ""
+
+#: orders/templates/orders/track.html:108
+msgid "Processing"
+msgstr ""
+
+#: orders/templates/orders/track.html:109
+msgid "Preparing your order"
+msgstr ""
+
+#: orders/templates/orders/track.html:119
+msgid "Shipped"
+msgstr ""
+
+#: orders/templates/orders/track.html:123
+msgid "Tracking"
+msgstr ""
+
+#: orders/templates/orders/track.html:135
+msgid "Delivered"
+msgstr ""
+
+#: orders/templates/orders/track.html:136
+msgid "Enjoy your ZLATO!"
+msgstr ""
+
+#: orders/templates/orders/track.html:144
+msgid "Order Items"
+msgstr ""
+
+#: orders/templates/orders/track.html:150
+#: products/templates/products/product_detail.html:104
+msgid "Quantity"
+msgstr "Количество"
+
+#: orders/templates/orders/track.html:160
+msgid "Shipping Address"
+msgstr ""
+
+#: orders/templates/orders/track.html:174
+msgid "Track Another Order"
+msgstr ""
+
+#: orders/templates/orders/track.html:184
+msgid "Need help with your order?"
+msgstr ""
+
+#: orders/templates/orders/track.html:188
+#: products/templates/products/contact.html:4
+msgid "Contact Us"
+msgstr ""
+
+#: products/templates/products/about.html:4
+msgid "About Us"
+msgstr ""
+
+#: products/templates/products/about.html:10
+msgid "About ZLATO"
+msgstr ""
+
+#: products/templates/products/about.html:12
+#, fuzzy
+#| msgid "Premium Greek olive oil for modern kitchens"
+msgid "Premium Greek olive oil, reimagined for modern kitchens"
+msgstr "Премиум гръцко зехтин за модерни кухни"
+
+#: products/templates/products/about.html:20
+msgid "Our Story"
+msgstr ""
+
+#: products/templates/products/about.html:23
+msgid ""
+"ZLATO was born from a simple idea: olive oil doesn't have to be boring. "
+"While we love tradition, we believe in making it accessible, fun, and "
+"perfectly suited for modern cooking."
+msgstr ""
+
+#: products/templates/products/about.html:26
+msgid ""
+"We source the finest Greek extra virgin olive oil and package it in our "
+"signature squeezable bottles. No more drips, no more mess, no more generic "
+"glass bottles taking up space in your kitchen."
+msgstr ""
+
+#: products/templates/products/about.html:29
+msgid ""
+"Just pure, premium olive oil with perfect control—exactly what you need, "
+"exactly when you need it."
+msgstr ""
+
+#: products/templates/products/about.html:36
+msgid "Why Squeezable?"
+msgstr ""
+
+#: products/templates/products/about.html:44
+msgid "Perfect Control"
+msgstr ""
+
+#: products/templates/products/about.html:45
+msgid "No more pouring too much. Squeeze exactly what you need."
+msgstr ""
+
+#: products/templates/products/about.html:53
+msgid "Lightning Fast"
+msgstr ""
+
+#: products/templates/products/about.html:54
+msgid "One hand, one squeeze. Done. Get back to cooking."
+msgstr ""
+
+#: products/templates/products/about.html:62
+msgid "No Mess"
+msgstr ""
+
+#: products/templates/products/about.html:63
+msgid "Clean drip-free design. Your counters will thank you."
+msgstr ""
+
+#: products/templates/products/about.html:70
+msgid "Our Olive Oil"
+msgstr ""
+
+#: products/templates/products/about.html:73
+msgid ""
+"Every bottle of ZLATO contains premium Greek extra virgin olive oil, cold-"
+"pressed from hand-picked olives."
+msgstr ""
+
+#: products/templates/products/about.html:81
+msgid "ZLATO Finishing"
+msgstr ""
+
+#: products/templates/products/about.html:82
+msgid ""
+"Bold, peppery, perfect for drizzling on salads, bread, and finished dishes."
+msgstr ""
+
+#: products/templates/products/about.html:90
+msgid "ZLATO Cooking"
+msgstr ""
+
+#: products/templates/products/about.html:91
+msgid ""
+"Smooth, versatile, high smoke point for sautéing, roasting, and everyday "
+"cooking."
+msgstr ""
+
+#: products/templates/products/about.html:100
+msgid "Our Mission"
+msgstr ""
+
+#: products/templates/products/about.html:102
+msgid ""
+"To bring joy back to cooking with premium olive oil that's as fun to use as "
+"it is delicious. We believe great food starts with great ingredients—and "
+"great ingredients should be easy to use."
+msgstr ""
+
+#: products/templates/products/about.html:108
+msgid "Ready to Transform Your Kitchen?"
+msgstr ""
+
+#: products/templates/products/about.html:111
+msgid "Shop ZLATO"
+msgstr ""
+
+#: products/templates/products/base.html:7
+msgid "Premium Products"
+msgstr "Премиум Продукти"
+
+#: products/templates/products/base.html:72
+#: products/templates/products/product_detail.html:11
+msgid "Shop"
+msgstr "Магазин"
+
+#: products/templates/products/base.html:73
+msgid "About"
+msgstr "За Нас"
+
+#: products/templates/products/base.html:74
+msgid "Contact"
+msgstr "Контакти"
+
+#: products/templates/products/base.html:128
+msgid "Premium Greek olive oil for modern kitchens"
+msgstr "Премиум гръцко зехтин за модерни кухни"
+
+#: products/templates/products/contact.html:10
+msgid "Get in Touch"
+msgstr ""
+
+#: products/templates/products/contact.html:12
+msgid "Have questions about ZLATO? We'd love to hear from you."
+msgstr ""
+
+#: products/templates/products/contact.html:31
+msgid "Send Us a Message"
+msgstr ""
+
+#: products/templates/products/contact.html:39
+msgid "Your Name"
+msgstr ""
+
+#: products/templates/products/contact.html:46
+msgid "Enter your name"
+msgstr ""
+
+#: products/templates/products/contact.html:52
+msgid "Your Email"
+msgstr ""
+
+#: products/templates/products/contact.html:59
+msgid "your@email.com"
+msgstr ""
+
+#: products/templates/products/contact.html:65
+msgid "Subject"
+msgstr "Тема"
+
+#: products/templates/products/contact.html:72
+msgid "What is this about?"
+msgstr ""
+
+#: products/templates/products/contact.html:78
+msgid "Message"
+msgstr "Съобщение"
+
+#: products/templates/products/contact.html:85
+msgid "Tell us more..."
+msgstr ""
+
+#: products/templates/products/contact.html:91
+msgid "Send Message"
+msgstr ""
+
+#: products/templates/products/contact.html:108
+msgid "Email Us"
+msgstr ""
+
+#: products/templates/products/contact.html:125
+msgid "Response Time"
+msgstr ""
+
+#: products/templates/products/contact.html:127
+msgid "We typically respond within 24 hours during business days."
+msgstr ""
+
+#: products/templates/products/contact.html:143
+msgid "Location"
+msgstr "Локация"
+
+#: products/templates/products/contact.html:145
+msgid "Shipping throughout Bulgaria"
+msgstr ""
+
+#: products/templates/products/contact.html:153
+msgid "Questions About Orders?"
+msgstr ""
+
+#: products/templates/products/contact.html:155
+msgid "Check your order status or contact us about your purchase."
+msgstr ""
+
+#: products/templates/products/contact.html:158
+msgid "Order Support"
+msgstr ""
+
+#: products/templates/products/homepage.html:8
+msgid "Greek Olive Oil, Reimagined"
+msgstr "Гръцко Зехтиново Масло, Преосмислено"
+
+#: products/templates/products/homepage.html:9
+msgid "Perfect control. Bold flavor. Squeezable design."
+msgstr "Перфектен контрол. Смел вкус. Стискаща се бутилка."
+
+#: products/templates/products/homepage.html:49
+msgid "View Details"
+msgstr "Виж Детайли"
+
+#: products/templates/products/homepage.html:58
+#: products/templates/products/product_detail.html:123
+msgid "Add to Cart"
+msgstr "Добави в Кошницата"
+
+#: products/templates/products/homepage.html:63
+#: products/templates/products/product_detail.html:92
+#: products/templates/products/product_detail.html:129
+msgid "Out of Stock"
+msgstr "Изчерпан"
+
+#: products/templates/products/homepage.html:77
+msgid "No Products Yet"
+msgstr "Все още няма продукти"
+
+#: products/templates/products/homepage.html:78
+msgid "Get started by adding your first product in the admin panel"
+msgstr "Започнете, като добавите първия си продукт в админ панела"
+
+#: products/templates/products/homepage.html:80
+msgid "Add Your First Product"
+msgstr "Добавете Вашия Първи Продукт"
+
+#: products/templates/products/product_detail.html:30
+msgid "No image"
+msgstr "Няма изображение"
+
+#: products/templates/products/product_detail.html:87
+msgid "In Stock"
+msgstr "В наличност"
+
+#: products/templates/products/product_detail.html:117
+msgid "available"
+msgstr "налични"
+
+#: products/templates/products/product_detail.html:136
+msgid "About This Product"
+msgstr "За Този Продукт"
+
+#: products/templates/products/product_detail.html:152
+msgid "Back to Shop"
+msgstr "Обратно към Магазина"

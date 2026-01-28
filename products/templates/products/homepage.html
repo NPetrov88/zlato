@@ -1,0 +1,824 @@
+{% extends 'products/base.html' %}
+{% load i18n %}
+
+{% block content %}
+<!-- Section 0: Video Background Hero -->
+<section class="relative min-h-screen overflow-hidden">
+    <!-- Video Background (full bleed, no box) -->
+    <video
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+        class="absolute inset-0 w-full h-full object-cover"
+        poster="/media/landing/zlato-bottle-transparent.png">
+        <source src="/media/landing/olive-oil-squeeze.mp4" type="video/mp4">
+        <!-- Fallback for browsers that don't support video -->
+        <img src="/media/landing/zlato-bottle-transparent.png"
+             alt="ZLATO Olive Oil"
+             class="absolute inset-0 w-full h-full object-cover">
+    </video>
+
+    <!-- Content Overlay - Positioned at bottom left -->
+    <div class="absolute bottom-8 left-4 md:bottom-24 md:left-24 z-10">
+        <div class="fade-in text-left">
+            <!-- Bold text -->
+            <h1 class="text-2xl sm:text-3xl md:text-5xl font-black text-zlato-black leading-tight">
+                Premium.<br>
+                Extra Virgin.<br>
+                Fresh.<br>
+                Cold Pressed.<br>
+                Squeezable.<br>
+                Greek.
+            </h1>
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-4 left-4 md:bottom-8 md:left-24 z-10 fade-in" aria-hidden="true">
+        <svg class="w-6 h-6 text-zlato-black/60 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Section 1: Hero -->
+<section class="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#9F6B75] via-[#C8969F] to-[#E0BDC5] py-20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+            <!-- Left: Large Diagonal Bottle -->
+            <div class="fade-in flex items-center justify-start order-1 md:order-1 pl-0 md:pl-8 -ml-12 md:-ml-20">
+                <img src="/media/landing/zlato-bottle-transparent.png"
+                     alt="ZLATO Greek Olive Oil"
+                     width="800"
+                     height="800"
+                     loading="lazy"
+                     class="w-[600px] md:w-[800px] object-contain transform -rotate-[18deg] scale-[1.05] md:scale-[1.4] drop-shadow-2xl hover:scale-[1.1] md:hover:scale-[1.45] transition-transform duration-500">
+            </div>
+
+            <!-- Right: Text Content -->
+            <div class="fade-in flex flex-col justify-center order-2 md:order-2 pl-4 md:pl-16 pr-4 md:pr-8 text-center md:text-left">
+                <div class="max-w-xl">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-zlato-black mb-6 leading-tight">
+                        {% trans "Olive Oil, Reimagined." %}
+                    </h1>
+                    <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-zlato-black/80 font-semibold mb-8">
+                        {% trans "The squeezable bottle that changed everything" %}
+                    </p>
+                    <div class="flex justify-center md:justify-start" aria-hidden="true">
+                        <svg class="w-6 h-6 text-zlato-black/60 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 6: Testimonials Carousel -->
+<section class="py-24 bg-zlato-cream overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+            <h2 class="text-4xl md:text-6xl font-black text-zlato-black mb-4">
+                {% trans "What People Say" %}
+            </h2>
+            <p class="text-xl text-zlato-black/70 font-semibold">
+                {% trans "Join thousands of happy customers across Bulgaria" %}
+            </p>
+        </div>
+
+        <!-- Infinite Carousel -->
+        <div class="relative">
+            <div class="flex gap-8 animate-scroll">
+                <!-- Testimonial 1 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <span class="sr-only">5 out of 5 stars</span>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg"><span class="text-4xl text-zlato-pink leading-none font-serif" aria-hidden="true">"</span>The quality of this olive oil is incredible - but honestly, the bottle is what made me a customer for life. No more oily countertops!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-pink rounded-full flex items-center justify-center text-xl font-black text-white">M</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Maria K.</p>
+                                <p class="text-sm text-zlato-black/60">Sofia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"I was skeptical about the squeezable bottle, but now I can't imagine going back to traditional glass. Perfect control every time."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-lime rounded-full flex items-center justify-center text-xl font-black text-white">G</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Georgi P.</p>
+                                <p class="text-sm text-zlato-black/60">Plovdiv</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"Finally, a premium olive oil that doesn't sacrifice convenience. The taste is exceptional and the bottle design is genius."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-pink rounded-full flex items-center justify-center text-xl font-black text-white">E</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Elena D.</p>
+                                <p class="text-sm text-zlato-black/60">Varna</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"Best olive oil I've ever used! The peppery finish is amazing and the squeezable design makes cooking so much easier."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-pink rounded-full flex items-center justify-center text-xl font-black text-white">D</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Dimitar V.</p>
+                                <p class="text-sm text-zlato-black/60">Burgas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"My grandmother from Greece approves! She says it reminds her of the olive oil from her village. That's the highest compliment possible."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-lime rounded-full flex items-center justify-center text-xl font-black text-white">N</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Nadia S.</p>
+                                <p class="text-sm text-zlato-black/60">Ruse</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"I bought one bottle to try it and now I keep 3 in my pantry at all times. Can't cook without it anymore!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-pink rounded-full flex items-center justify-center text-xl font-black text-white">P</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Petar M.</p>
+                                <p class="text-sm text-zlato-black/60">Stara Zagora</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 7 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"The squeeze bottle is revolutionary! I use it for salads, pasta, everything. My kids love helping in the kitchen now."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-lime rounded-full flex items-center justify-center text-xl font-black text-white">K</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Kristina T.</p>
+                                <p class="text-sm text-zlato-black/60">Pleven</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 8 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"As a chef, I'm very picky about olive oil. ZLATO exceeded my expectations. Rich flavor and perfect consistency."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-pink rounded-full flex items-center justify-center text-xl font-black text-white">I</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Ivan R.</p>
+                                <p class="text-sm text-zlato-black/60">Veliko Tarnovo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate set for infinite scroll - ALL 8 testimonials repeated -->
+                <!-- Duplicate Testimonial 1 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"The quality of this olive oil is incredible - but honestly, the bottle is what made me a customer for life. No more oily countertops!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-pink rounded-full flex items-center justify-center text-xl font-black text-white">M</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Maria K.</p>
+                                <p class="text-sm text-zlato-black/60">Sofia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate Testimonial 2 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"I was skeptical about the squeezable bottle, but now I can't imagine going back to traditional glass. Perfect control every time."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-lime rounded-full flex items-center justify-center text-xl font-black text-white">G</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Georgi P.</p>
+                                <p class="text-sm text-zlato-black/60">Plovdiv</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate Testimonial 3 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"Finally, a premium olive oil that doesn't sacrifice convenience. The taste is exceptional and the bottle design is genius."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-pink rounded-full flex items-center justify-center text-xl font-black text-white">E</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Elena D.</p>
+                                <p class="text-sm text-zlato-black/60">Varna</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate Testimonial 4 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"Best olive oil I've ever used! The peppery finish is amazing and the squeezable design makes cooking so much easier."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-pink rounded-full flex items-center justify-center text-xl font-black text-white">D</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Dimitar V.</p>
+                                <p class="text-sm text-zlato-black/60">Burgas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate Testimonial 5 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"My grandmother from Greece approves! She says it reminds her of the olive oil from her village. That's the highest compliment possible."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-lime rounded-full flex items-center justify-center text-xl font-black text-white">N</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Nadia S.</p>
+                                <p class="text-sm text-zlato-black/60">Ruse</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate Testimonial 6 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"I bought one bottle to try it and now I keep 3 in my pantry at all times. Can't cook without it anymore!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-pink rounded-full flex items-center justify-center text-xl font-black text-white">P</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Petar M.</p>
+                                <p class="text-sm text-zlato-black/60">Stara Zagora</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate Testimonial 7 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"The squeeze bottle is revolutionary! I use it for salads, pasta, everything. My kids love helping in the kitchen now."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-lime rounded-full flex items-center justify-center text-xl font-black text-white">K</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Kristina T.</p>
+                                <p class="text-sm text-zlato-black/60">Pleven</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate Testimonial 8 -->
+                <div class="flex-shrink-0 w-96 group relative">
+                    <div class="absolute -inset-2 bg-zlato-lime/20 rounded-2xl blur-xl transition-all duration-300"></div>
+                    <div class="relative bg-white rounded-2xl p-8 shadow-xl border-2 border-zlato-pink h-full">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="w-6 h-6 text-zlato-lime" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-zlato-black/80 leading-relaxed mb-6 italic text-lg">"As a chef, I'm very picky about olive oil. ZLATO exceeded my expectations. Rich flavor and perfect consistency."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-zlato-pink rounded-full flex items-center justify-center text-xl font-black text-white">I</div>
+                            <div>
+                                <p class="font-bold text-zlato-black">Ivan R.</p>
+                                <p class="text-sm text-zlato-black/60">Veliko Tarnovo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-384px * 8 - 32px * 7));
+        }
+    }
+
+    .animate-scroll {
+        animation: scroll 60s linear infinite;
+    }
+
+    .animate-scroll:hover {
+        animation-play-state: paused;
+    }
+</style>
+
+<!-- Section 3: Two Oils, One Mission -->
+<section class="py-24 bg-zlato-pink-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16 fade-in">
+            <h2 class="text-4xl md:text-6xl font-black text-zlato-black mb-6">
+                {% trans "Two Oils, One Mission" %}
+            </h2>
+            <p class="text-xl text-zlato-black/70 font-semibold">
+                {% trans "Choose the right ZLATO for every occasion" %}
+            </p>
+        </div>
+
+        <!-- Two Oil Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            <!-- ZLATO Cooking Card -->
+            <div class="fade-in group relative">
+                <div class="absolute -inset-2 bg-orange-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+                <div class="relative bg-white rounded-3xl p-8 shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="flex justify-center mb-8">
+                        <div class="w-64 h-64 flex items-center justify-center">
+                            <img src="/media/landing/zlato-bottle-hero-transparent.png" alt="ZLATO Cooking Oil" width="256" height="256" loading="lazy" class="max-w-full max-h-full object-contain transform hover:scale-105 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <h3 class="text-3xl font-black text-zlato-black mb-4 text-center">{% trans "ZLATO Cooking" %}</h3>
+                    <p class="text-zlato-black/70 mb-6 text-center leading-relaxed">
+                        {% trans "High-heat stable and versatile. Perfect for everyday cooking, from sautéing to roasting." %}
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3 bg-zlato-pink-light/50 rounded-lg p-3">
+                            <svg class="w-8 h-8 text-zlato-black flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18M5 21V7a2 2 0 012-2h10a2 2 0 012 2v14M9 7v14m6-14v14"/>
+                            </svg>
+                            <span class="font-semibold text-zlato-black">{% trans "Sautéing & Frying" %}</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-zlato-pink-light/50 rounded-lg p-3">
+                            <svg class="w-8 h-8 text-zlato-black flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2C11.5 2 11 2.19 10.59 2.59L2.59 10.59C1.8 11.37 1.8 12.63 2.59 13.41C3.37 14.2 4.63 14.2 5.41 13.41L6 12.83V21C6 21.55 6.45 22 7 22C7.55 22 8 21.55 8 21V12.83L12 8.83L16 12.83V21C16 21.55 16.45 22 17 22C17.55 22 18 21.55 18 21V12.83L18.59 13.41C19.37 14.2 20.63 14.2 21.41 13.41C22.2 12.63 22.2 11.37 21.41 10.59L13.41 2.59C13 2.19 12.5 2 12 2Z"/>
+                            </svg>
+                            <span class="font-semibold text-zlato-black">{% trans "High-Heat Roasting" %}</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-zlato-pink-light/50 rounded-lg p-3">
+                            <svg class="w-8 h-8 text-zlato-black flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="13" r="8" stroke-width="2"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5h8M10 5V3M14 5V3"/>
+                            </svg>
+                            <span class="font-semibold text-zlato-black">{% trans "Everyday Cooking" %}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZLATO Finishing Card -->
+            <div class="fade-in group relative">
+                <div class="absolute -inset-2 bg-zlato-lime/30 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+                <div class="relative bg-white rounded-3xl p-8 shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="flex justify-center mb-8">
+                        <div class="w-64 h-64 flex items-center justify-center">
+                            <img src="/media/landing/zlato-finishing-bottle-transparent.png?v=3" alt="ZLATO Finishing Oil" width="256" height="256" loading="lazy" class="max-w-full max-h-full object-contain transform hover:scale-105 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <h3 class="text-3xl font-black text-zlato-black mb-4 text-center">{% trans "ZLATO Finishing" %}</h3>
+                    <p class="text-zlato-black/70 mb-6 text-center leading-relaxed">
+                        {% trans "Bold, peppery flavor for the final touch. Elevate your dishes with premium finishing oil." %}
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3 bg-zlato-lime/20 rounded-lg p-3">
+                            <svg class="w-8 h-8 text-zlato-black flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m0 0a5 5 0 01-5-5m5 5a5 5 0 005-5M8 8h8"/>
+                            </svg>
+                            <span class="font-semibold text-zlato-black">{% trans "Drizzling & Salads" %}</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-zlato-lime/20 rounded-lg p-3">
+                            <svg class="w-8 h-8 text-zlato-black flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2v-8c0-1.1.9-2 2-2zM5 8V6c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v2"/>
+                            </svg>
+                            <span class="font-semibold text-zlato-black">{% trans "Dipping Bread" %}</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-zlato-lime/20 rounded-lg p-3">
+                            <svg class="w-8 h-8 text-zlato-black flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2C11 2 10 2.5 9.5 3.5L6 12L12 22L18 12L14.5 3.5C14 2.5 13 2 12 2Z"/>
+                            </svg>
+                            <span class="font-semibold text-zlato-black">{% trans "Final Flavor Touch" %}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: The Functional Bottle -->
+<section class="py-24 bg-zlato-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+            <h2 class="text-4xl md:text-6xl font-black text-zlato-black mb-6">
+                {% trans "Perfect Control. Zero Mess." %}
+            </h2>
+            <p class="text-xl text-zlato-black/70 font-semibold max-w-3xl mx-auto">
+                {% trans "The squeezable bottle design gives you precise control - no drips, no waste, no oily counters" %}
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Feature 1: Squeeze Control -->
+            <div class="fade-in text-center">
+                <div class="mb-6 overflow-hidden rounded-2xl">
+                    <img src="/media/landing/feature-squeeze.jpg"
+                         alt="ZLATO bottle squeezing olive oil onto caprese salad"
+                         width="500"
+                         height="500"
+                         loading="lazy"
+                         class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-2xl font-black text-zlato-black mb-3">{% trans "Squeeze Control" %}</h3>
+                <p class="text-zlato-black/70">{% trans "Precise pouring - get exactly the amount you need, every time" %}</p>
+            </div>
+
+            <!-- Feature 2: No-Remove Cap -->
+            <div class="fade-in text-center">
+                <div class="mb-6 overflow-hidden rounded-2xl">
+                    <img src="/media/landing/feature-cap.jpg"
+                         alt="ZLATO twist cap mechanism"
+                         width="500"
+                         height="500"
+                         loading="lazy"
+                         class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-2xl font-black text-zlato-black mb-3">{% trans "No-Remove Cap" %}</h3>
+                <p class="text-zlato-black/70">{% trans "Open and close with a simple twist - no parts to lose or wash" %}</p>
+            </div>
+
+            <!-- Feature 3: One-Handed Use -->
+            <div class="fade-in text-center">
+                <div class="mb-6 overflow-hidden rounded-2xl">
+                    <img src="/media/landing/feature-martini.jpg"
+                         alt="Olive oil martini with olives"
+                         width="500"
+                         height="500"
+                         loading="lazy"
+                         class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-2xl font-black text-zlato-black mb-3">{% trans "One-Handed Use" %}</h3>
+                <p class="text-zlato-black/70">{% trans "Perfect for busy cooking - operate with one hand while stirring with the other" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 5: Kitchen Lifestyle -->
+<section class="py-24 bg-zlato-pink-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <!-- Text First (Left) -->
+            <div class="fade-in order-2 md:order-1">
+                <h2 class="text-4xl md:text-5xl font-black text-zlato-black mb-6">
+                    {% trans "Designed for Modern Kitchens" %}
+                </h2>
+                <div class="text-lg text-zlato-black/80 leading-relaxed space-y-4">
+                    <p>
+                        {% trans "From weeknight salads to weekend entertaining, ZLATO elevates every meal with premium quality and effortless convenience." %}
+                    </p>
+                    <p>
+                        {% trans "Whether you're drizzling over fresh greens, finishing pasta, or roasting vegetables - ZLATO makes it simple, clean, and delicious." %}
+                    </p>
+                </div>
+                <div class="mt-8 flex gap-4">
+                    <div class="flex-1 rounded-xl overflow-hidden group">
+                        <div class="aspect-square overflow-hidden">
+                            <img src="/media/landing/lifestyle-icecream.jpg"
+                                 alt="Vanilla gelato with olive oil drizzle"
+                                 width="200"
+                                 height="200"
+                                 loading="lazy"
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <div class="flex-1 rounded-xl overflow-hidden group">
+                        <div class="aspect-square overflow-hidden">
+                            <img src="/media/landing/lifestyle-pasta.jpg"
+                                 alt="Fresh pesto pasta with basil"
+                                 width="200"
+                                 height="200"
+                                 loading="lazy"
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                    <div class="flex-1 rounded-xl overflow-hidden group">
+                        <div class="aspect-square overflow-hidden">
+                            <img src="/media/landing/lifestyle-bread.jpg"
+                                 alt="Artisan bread with olive oil drizzle"
+                                 width="200"
+                                 height="200"
+                                 loading="lazy"
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lifestyle Image (Right) -->
+            <div class="fade-in order-1 md:order-2">
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-zlato-lime/30 rounded-3xl blur-3xl group-hover:blur-2xl transition-all duration-300"></div>
+                    <div class="relative rounded-3xl shadow-xl aspect-square overflow-hidden">
+                        <!-- Fresh salad with olive oil - lifestyle imagery -->
+                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&h=600&fit=crop&q=80"
+                             alt="Fresh Mediterranean salad with olive oil drizzle"
+                             width="600"
+                             height="600"
+                             loading="lazy"
+                             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 7: Quality Guarantee -->
+<section class="py-24 bg-zlato-pink-light">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="fade-in bg-zlato-black text-white rounded-3xl p-12 md:p-16 shadow-2xl text-center">
+            <div class="w-24 h-24 bg-zlato-lime rounded-full flex items-center justify-center mx-auto mb-8">
+                <svg class="w-12 h-12 text-zlato-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black mb-6">
+                {% trans "Taste the Difference, Risk-Free" %}
+            </h2>
+            <p class="text-xl opacity-90 leading-relaxed mb-8 max-w-3xl mx-auto">
+                {% trans "We're so confident you'll love ZLATO, we offer a 14-day satisfaction guarantee. If you're not completely happy, we'll refund you - no questions asked." %}
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <div class="bg-white/10 rounded-xl p-6">
+                    <p class="font-bold text-lg mb-2 flex items-center gap-2">
+                        <svg class="w-6 h-6 text-zlato-lime flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        {% trans "14-Day Returns" %}
+                    </p>
+                    <p class="text-sm opacity-80">{% trans "Not satisfied? Full refund guaranteed" %}</p>
+                </div>
+                <div class="bg-white/10 rounded-xl p-6">
+                    <p class="font-bold text-lg mb-2 flex items-center gap-2">
+                        <svg class="w-6 h-6 text-zlato-lime flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        {% trans "Quality Tested" %}
+                    </p>
+                    <p class="text-sm opacity-80">{% trans "Every batch tested for excellence" %}</p>
+                </div>
+                <div class="bg-white/10 rounded-xl p-6">
+                    <p class="font-bold text-lg mb-2 flex items-center gap-2">
+                        <svg class="w-6 h-6 text-zlato-lime flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        {% trans "Direct to You" %}
+                    </p>
+                    <p class="text-sm opacity-80">{% trans "From our groves to your kitchen" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 8: Product Catalog -->
+<section class="py-24 bg-zlato-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-in">
+            <h2 class="text-5xl md:text-6xl font-black text-zlato-black mb-6">
+                {% trans "Ready to Experience ZLATO?" %}
+            </h2>
+            <p class="text-xl text-zlato-black/70 font-semibold mb-8 max-w-2xl mx-auto">
+                {% trans "Choose your perfect olive oil and transform your cooking today" %}
+            </p>
+            <div class="inline-block animate-bounce" aria-hidden="true">
+                <svg class="w-8 h-8 text-zlato-black/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        {% if products %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for product in products %}
+            <div class="fade-in rounded-2xl overflow-hidden shadow-xl transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-zlato-pink/20 hover:border-zlato-olive border-2 border-transparent flex flex-col h-full">
+                <!-- Product Image -->
+                <a href="{% url 'products:detail' product.slug %}" class="block aspect-square bg-zlato-pink-dark flex items-center justify-center overflow-hidden">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    {% else %}
+                        <div class="text-gray-400 text-center p-8">
+                            <svg class="w-24 h-24 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <p class="text-sm">No image</p>
+                        </div>
+                    {% endif %}
+                </a>
+
+                <!-- Product Info -->
+                <div class="p-6 bg-white flex-1 flex flex-col">
+                    <a href="{% url 'products:detail' product.slug %}">
+                        <h3 class="text-2xl font-bold text-zlato-text-dark mb-2 hover:text-zlato-olive transition">{{ product.name }}</h3>
+                    </a>
+                    <p class="text-zlato-text-dark/70 mb-4 min-h-[3rem]">{{ product.short_description }}</p>
+                    <div class="mb-4">
+                        <span class="text-3xl font-black text-zlato-text-dark">{{ product.price }} <span class="text-xl">EUR</span></span>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-2 mt-auto">
+                        <a href="{% url 'products:detail' product.slug %}"
+                           class="block w-full bg-zlato-cream-dark text-zlato-text-dark py-3 rounded-lg hover:bg-zlato-cream hover:shadow-lg hover:shadow-zlato-olive/20 hover:scale-[1.02] transition-all duration-300 font-bold text-center">
+                            {% trans "View Details" %}
+                        </a>
+
+                        {% if product.in_stock %}
+                        <form method="post" action="{% url 'cart:add' product.id %}" @submit="$dispatch('cart-updated')">
+                            {% csrf_token %}
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="w-full bg-zlato-olive text-white py-3 rounded-lg hover:bg-zlato-olive/90 hover:shadow-lg hover:shadow-zlato-olive/30 hover:scale-[1.02] transition-all duration-300 font-bold">
+                                {% trans "Add to Cart" %}
+                            </button>
+                        </form>
+                        {% else %}
+                        <button disabled class="w-full bg-gray-300 text-gray-500 py-3 rounded-lg cursor-not-allowed font-bold">
+                            {% trans "Out of Stock" %}
+                        </button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <!-- Empty State -->
+        <div class="text-center py-20 fade-in">
+            <svg class="w-32 h-32 mx-auto mb-6 text-zlato-black/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+            </svg>
+            <h2 class="text-3xl font-black text-zlato-black mb-4">{% trans "No Products Yet" %}</h2>
+            <p class="text-zlato-black/70 mb-6 font-semibold">{% trans "Get started by adding your first product in the admin panel" %}</p>
+            <a href="/admin/products/product/add/" class="inline-block bg-zlato-black text-white px-8 py-3 rounded-lg hover:bg-zlato-lime hover:text-zlato-black transition-all duration-300 font-bold">
+                {% trans "Add Your First Product" %}
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

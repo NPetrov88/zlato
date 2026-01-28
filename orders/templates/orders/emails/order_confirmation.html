@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #C797A3;
+            color: #000000;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 900;
+        }
+        .content {
+            background-color: #ffffff;
+            padding: 30px;
+            border: 3px solid #E8D4D8;
+            border-radius: 0 0 10px 10px;
+        }
+        .order-details {
+            background-color: #E8D4D8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .order-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #B8C944;
+            margin-bottom: 10px;
+        }
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .items-table th {
+            background-color: #000000;
+            color: #B8C944;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        .items-table td {
+            padding: 12px;
+            border-bottom: 1px solid #E8D4D8;
+        }
+        .total-row {
+            font-weight: bold;
+            font-size: 18px;
+            background-color: #E8D4D8;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #B8C944;
+            color: #000000;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ZLATO</h1>
+        <p style="margin: 10px 0 0 0; font-size: 18px;">Thank you for your order!</p>
+    </div>
+
+    <div class="content">
+        <p>Hi {{ order.customer_name }},</p>
+
+        <p>Your order has been confirmed! We're excited to get your premium Greek olive oil to you.</p>
+
+        <div class="order-details">
+            <div class="order-number">Order #{{ order.order_number }}</div>
+            <p><strong>Order Date:</strong> {{ order.created_at|date:"F d, Y H:i" }}</p>
+            <p><strong>Payment Status:</strong> Paid</p>
+        </div>
+
+        <h2 style="color: #000000;">Order Items</h2>
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in order.items.all %}
+                <tr>
+                    <td>{{ item.product_name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.product_price }} EUR</td>
+                    <td>{{ item.total_price }} EUR</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Subtotal:</strong></td>
+                    <td>{{ order.subtotal }} EUR</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Shipping:</strong></td>
+                    <td>{{ order.shipping_cost }} EUR</td>
+                </tr>
+                {% if order.discount_amount > 0 %}
+                <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Discount ({{ order.discount_code.code }}):</strong></td>
+                    <td>-{{ order.discount_amount }} EUR</td>
+                </tr>
+                {% endif %}
+                <tr class="total-row">
+                    <td colspan="3" style="text-align: right;"><strong>TOTAL:</strong></td>
+                    <td>{{ order.total }} EUR</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 style="color: #000000;">Shipping Address</h2>
+        <p>
+            {{ order.customer_name }}<br>
+            {{ order.shipping_address }}<br>
+            {{ order.shipping_city }}, {{ order.shipping_postal_code }}<br>
+            {% if order.shipping_region %}{{ order.shipping_region }}<br>{% endif %}
+            Bulgaria
+        </p>
+
+        <p>We'll send you another email when your order ships with tracking information.</p>
+
+        <p style="margin-top: 30px;">
+            <strong>Questions?</strong><br>
+            Contact us at {{ admin_email }}
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>ZLATO - Premium Greek olive oil for modern kitchens</p>
+        <p>&copy; {% now "Y" %} ZLATO. All rights reserved.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+ZLATO - Your Order Has Shipped!
+
+Hi {{ order.customer_name }},
+
+Great news! Your ZLATO order is on its way to you.
+
+SHIPPING DETAILS
+═══════════════════════════════════════
+Order Number: #{{ order.order_number }}
+Shipped on: {{ order.shipped_at|date:"F d, Y" }}
+{% if order.tracking_number %}
+Tracking Number: {{ order.tracking_number }}
+{% endif %}
+
+WHAT'S IN YOUR PACKAGE
+═══════════════════════════════════════
+{% for item in order.items.all %}
+{{ item.quantity }}x {{ item.product_name }}
+{% endfor %}
+
+DELIVERY ADDRESS
+═══════════════════════════════════════
+{{ order.customer_name }}
+{{ order.shipping_address }}
+{{ order.shipping_city }}, {{ order.shipping_postal_code }}
+{% if order.shipping_region %}{{ order.shipping_region }}
+{% endif %}Bulgaria
+
+Your order typically arrives within 2-3 business days.
+
+Questions about your delivery? Contact us at {{ admin_email }}
+
+──────────────────────────────────────
+ZLATO - Premium Greek olive oil for modern kitchens
+© {% now "Y" %} ZLATO. All rights reserved.

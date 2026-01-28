@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #B8C944;
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .content {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 2px solid #E8D4D8;
+            border-radius: 0 0 8px 8px;
+        }
+        .order-summary {
+            background-color: #E8D4D8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .items {
+            list-style-type: none;
+            padding: 0;
+        }
+        .items li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        🎉 New ZLATO Order #{{ order.order_number }}
+    </div>
+
+    <div class="content">
+        <div class="order-summary">
+            <p><strong>Customer:</strong> {{ order.customer_name }}</p>
+            <p><strong>Email:</strong> {{ order.customer_email }}</p>
+            <p><strong>Phone:</strong> {{ order.customer_phone }}</p>
+            <p><strong>Total:</strong> {{ order.total }} EUR</p>
+            <p><strong>Order Date:</strong> {{ order.created_at|date:"F d, Y H:i" }}</p>
+        </div>
+
+        <h3>Items Ordered:</h3>
+        <ul class="items">
+            {% for item in order.items.all %}
+            <li>{{ item.quantity }}x {{ item.product_name }} ({{ item.product_price }} EUR each)</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Shipping Address:</h3>
+        <p>
+            {{ order.shipping_address }}<br>
+            {{ order.shipping_city }}, {{ order.shipping_postal_code }}<br>
+            {% if order.shipping_region %}{{ order.shipping_region }}<br>{% endif %}
+            Bulgaria
+        </p>
+
+        {% if order.discount_code %}
+        <p><strong>Discount Code Used:</strong> {{ order.discount_code.code }} ({{ order.discount_code.discount_percentage }}% off)</p>
+        {% endif %}
+
+        <p style="margin-top: 20px;">
+            <a href="{{ admin_url }}" style="background-color: #B8C944; color: #000000; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">View in Admin</a>
+        </p>
+    </div>
+</body>
+</html>

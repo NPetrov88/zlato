@@ -1,0 +1,79 @@
+{% extends 'products/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Out of Stock" %} - ZLATO{% endblock %}
+
+{% block content %}
+<section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center fade-in">
+        <!-- Icon -->
+        <div class="w-24 h-24 bg-zlato-pink rounded-full flex items-center justify-center mx-auto mb-8">
+            <svg class="w-12 h-12 text-zlato-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path>
+            </svg>
+        </div>
+
+        <!-- Message -->
+        <h1 class="text-5xl md:text-6xl font-black text-zlato-black mb-6 leading-tight">
+            {% trans "Sorry, We're Out!" %}
+        </h1>
+        <p class="text-xl text-zlato-black/70 font-semibold mb-8 max-w-2xl mx-auto">
+            {% trans "The product you're looking for is currently out of stock. But don't worry - more is on the way!" %}
+        </p>
+
+        <!-- Info Section -->
+        <div class="bg-zlato-pink-light rounded-2xl p-8 border-2 border-zlato-pink mb-8 text-left">
+            <h2 class="text-2xl font-black text-zlato-black mb-4">{% trans "What can you do?" %}</h2>
+            <ul class="space-y-4 text-zlato-black/80">
+                <li class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-zlato-lime rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="text-lg">🔔</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-zlato-black mb-1">{% trans "Get notified when back in stock" %}</p>
+                        <p class="text-sm">{% trans "Contact us with the product you want, and we'll email you when it's available" %}</p>
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-zlato-lime rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="text-lg">🛒</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-zlato-black mb-1">{% trans "Browse other products" %}</p>
+                        <p class="text-sm">{% trans "Check out our other premium olive oils - they might be just what you need!" %}</p>
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-zlato-lime rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                        <span class="text-lg">💬</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-zlato-black mb-1">{% trans "Ask when it's coming back" %}</p>
+                        <p class="text-sm">{% trans "Our team can give you an estimated restock date" %}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="space-y-4">
+            <a href="{% url 'products:contact' %}"
+               class="block w-full bg-zlato-black text-white py-4 rounded-xl hover:bg-zlato-lime hover:text-zlato-black transition-all duration-300 font-black text-lg transform hover:scale-105 shadow-lg">
+                {% trans "Contact Us About Restocking" %}
+            </a>
+            <a href="{% url 'homepage' %}"
+               class="block w-full bg-white text-zlato-black border-2 border-zlato-black py-4 rounded-xl hover:bg-zlato-black hover:text-white transition-all duration-300 font-bold text-lg">
+                {% trans "Browse Other Products" %}
+            </a>
+        </div>
+
+        <!-- Reassurance -->
+        <div class="mt-12 bg-white rounded-xl p-6 border-2 border-zlato-pink">
+            <p class="text-zlato-black/70 font-semibold">
+                <span class="text-2xl mr-2">🚚</span>
+                {% trans "We're working hard to keep our products in stock. Premium quality takes time, but it's worth the wait!" %}
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #B8C944;
+            color: #000000;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 900;
+        }
+        .content {
+            background-color: #ffffff;
+            padding: 30px;
+            border: 3px solid #E8D4D8;
+            border-radius: 0 0 10px 10px;
+        }
+        .shipping-box {
+            background-color: #E8D4D8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .order-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #C797A3;
+            margin-bottom: 10px;
+        }
+        .tracking-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+            background-color: #B8C944;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ZLATO</h1>
+        <p style="margin: 10px 0 0 0; font-size: 18px;">Your order has shipped! 📦</p>
+    </div>
+
+    <div class="content">
+        <p>Hi {{ order.customer_name }},</p>
+
+        <p>Great news! Your ZLATO order is on its way to you.</p>
+
+        <div class="shipping-box">
+            <div class="order-number">Order #{{ order.order_number }}</div>
+            <p><strong>Shipped on:</strong> {{ order.shipped_at|date:"F d, Y" }}</p>
+            {% if order.tracking_number %}
+            <p style="margin-top: 20px;"><strong>Tracking Number:</strong></p>
+            <div class="tracking-number">{{ order.tracking_number }}</div>
+            {% endif %}
+        </div>
+
+        <h2 style="color: #000000;">What's in your package</h2>
+        <ul style="list-style-type: none; padding: 0;">
+            {% for item in order.items.all %}
+            <li style="padding: 8px 0; border-bottom: 1px solid #E8D4D8;">
+                <strong>{{ item.quantity }}x</strong> {{ item.product_name }}
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h2 style="color: #000000;">Delivery Address</h2>
+        <p>
+            {{ order.customer_name }}<br>
+            {{ order.shipping_address }}<br>
+            {{ order.shipping_city }}, {{ order.shipping_postal_code }}<br>
+            {% if order.shipping_region %}{{ order.shipping_region }}<br>{% endif %}
+            Bulgaria
+        </p>
+
+        <p style="margin-top: 30px;">Your order typically arrives within 2-3 business days.</p>
+
+        <p>
+            <strong>Questions about your delivery?</strong><br>
+            Contact us at {{ admin_email }}
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>ZLATO - Premium Greek olive oil for modern kitchens</p>
+        <p>&copy; {% now "Y" %} ZLATO. All rights reserved.</p>
+    </div>
+</body>
+</html>
