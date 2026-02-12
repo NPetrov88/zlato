@@ -141,14 +141,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [BASE_DIR / 'static', BASE_DIR / 'media']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # WhiteNoise for serving static files in production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files (User uploaded content like product images)
-MEDIA_URL = 'media/'
+# In production, media is served via static files (WhiteNoise)
+if DEBUG:
+    MEDIA_URL = 'media/'
+else:
+    MEDIA_URL = 'static/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
