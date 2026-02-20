@@ -148,11 +148,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Media files (User uploaded content like product images)
-# In production, media is served via static files (WhiteNoise)
-if DEBUG:
-    MEDIA_URL = 'media/'
-else:
-    MEDIA_URL = 'static/'
+# Media dir is also in STATICFILES_DIRS so WhiteNoise serves them at /static/
+MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
