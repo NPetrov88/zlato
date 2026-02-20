@@ -34,7 +34,7 @@
 
             <!-- Gallery Thumbnails -->
             {% if gallery_images %}
-            <div class="grid grid-cols-4 gap-4">
+            <div class="grid grid-cols-3 sm:grid-cols-4 gap-3 sm:gap-4">
                 {% for img in gallery_images %}
                 <button onclick="changeImage('{{ img.image.url }}')"
                         class="bg-zlato-pink-light rounded-lg overflow-hidden aspect-square hover:ring-4 hover:ring-zlato-lime transition">
