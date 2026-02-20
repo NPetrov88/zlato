@@ -1,5 +1,5 @@
 {% extends 'products/base.html' %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block content %}
 <!-- Shop Page - Product Catalog Only -->
@@ -22,7 +22,7 @@
                 <!-- Product Image -->
                 <a href="{% url 'products:detail' product.slug %}" class="block aspect-square bg-zlato-pink-dark flex items-center justify-center overflow-hidden">
                     {% if product.image %}
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                        <img src="{% static product.image.name %}" alt="{{ product.name }}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
                     {% else %}
                         <div class="text-gray-400 text-center p-8">
                             <svg class="w-24 h-24 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
