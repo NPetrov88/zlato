@@ -1,5 +1,5 @@
 {% extends 'products/base.html' %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block content %}
 <!-- Section 0: Video Background Hero -->
@@ -12,10 +12,10 @@
         playsinline
         preload="auto"
         class="absolute inset-0 w-full h-full object-cover"
-        poster="/media/landing/zlato-bottle-transparent.png">
-        <source src="/media/landing/olive-oil-squeeze.mp4" type="video/mp4">
+        poster="{% static 'landing/zlato-bottle-transparent.png' %}">
+        <source src="{% static 'landing/olive-oil-squeeze.mp4' %}" type="video/mp4">
         <!-- Fallback for browsers that don't support video -->
-        <img src="/media/landing/zlato-bottle-transparent.png"
+        <img src="{% static 'landing/zlato-bottle-transparent.png' %}"
              alt="ZLATO Olive Oil"
              class="absolute inset-0 w-full h-full object-cover">
     </video>
@@ -49,7 +49,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             <!-- Left: Large Diagonal Bottle -->
             <div class="fade-in flex items-center justify-start order-1 md:order-1 pl-0 md:pl-8 -ml-12 md:-ml-20">
-                <img src="/media/landing/zlato-bottle-transparent.png"
+                <img src="{% static 'landing/zlato-bottle-transparent.png' %}"
                      alt="ZLATO Greek Olive Oil"
                      width="800"
                      height="800"
@@ -489,7 +489,7 @@
                 <div class="relative bg-white rounded-3xl p-8 shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <div class="flex justify-center mb-8">
                         <div class="w-64 h-64 flex items-center justify-center">
-                            <img src="/media/landing/zlato-bottle-hero-transparent.png" alt="ZLATO Cooking Oil" width="256" height="256" loading="lazy" class="max-w-full max-h-full object-contain transform hover:scale-105 transition-transform duration-300">
+                            <img src="{% static 'landing/zlato-bottle-hero-transparent.png' %}" alt="ZLATO Cooking Oil" width="256" height="256" loading="lazy" class="max-w-full max-h-full object-contain transform hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                     <h3 class="text-3xl font-black text-zlato-black mb-4 text-center">{% trans "ZLATO Cooking" %}</h3>
@@ -526,7 +526,7 @@
                 <div class="relative bg-white rounded-3xl p-8 shadow-xl hover:-translate-y-2 transition-all duration-300">
                     <div class="flex justify-center mb-8">
                         <div class="w-64 h-64 flex items-center justify-center">
-                            <img src="/media/landing/zlato-finishing-bottle-transparent.png?v=3" alt="ZLATO Finishing Oil" width="256" height="256" loading="lazy" class="max-w-full max-h-full object-contain transform hover:scale-105 transition-transform duration-300">
+                            <img src="{% static 'landing/zlato-finishing-bottle-transparent.png' %}" alt="ZLATO Finishing Oil" width="256" height="256" loading="lazy" class="max-w-full max-h-full object-contain transform hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                     <h3 class="text-3xl font-black text-zlato-black mb-4 text-center">{% trans "ZLATO Finishing" %}</h3>
@@ -575,7 +575,7 @@
             <!-- Feature 1: Squeeze Control -->
             <div class="fade-in text-center">
                 <div class="mb-6 overflow-hidden rounded-2xl">
-                    <img src="/media/landing/feature-squeeze.jpg"
+                    <img src="{% static 'landing/feature-squeeze.jpg' %}"
                          alt="ZLATO bottle squeezing olive oil onto caprese salad"
                          width="500"
                          height="500"
@@ -589,7 +589,7 @@
             <!-- Feature 2: No-Remove Cap -->
             <div class="fade-in text-center">
                 <div class="mb-6 overflow-hidden rounded-2xl">
-                    <img src="/media/landing/feature-cap.jpg"
+                    <img src="{% static 'landing/feature-cap.jpg' %}"
                          alt="ZLATO twist cap mechanism"
                          width="500"
                          height="500"
@@ -603,7 +603,7 @@
             <!-- Feature 3: One-Handed Use -->
             <div class="fade-in text-center">
                 <div class="mb-6 overflow-hidden rounded-2xl">
-                    <img src="/media/landing/feature-martini.jpg"
+                    <img src="{% static 'landing/feature-martini.jpg' %}"
                          alt="Olive oil martini with olives"
                          width="500"
                          height="500"
@@ -637,7 +637,7 @@
                 <div class="mt-8 flex gap-4">
                     <div class="flex-1 rounded-xl overflow-hidden group">
                         <div class="aspect-square overflow-hidden">
-                            <img src="/media/landing/lifestyle-icecream.jpg"
+                            <img src="{% static 'landing/lifestyle-icecream.jpg' %}"
                                  alt="Vanilla gelato with olive oil drizzle"
                                  width="200"
                                  height="200"
@@ -647,7 +647,7 @@
                     </div>
                     <div class="flex-1 rounded-xl overflow-hidden group">
                         <div class="aspect-square overflow-hidden">
-                            <img src="/media/landing/lifestyle-pasta.jpg"
+                            <img src="{% static 'landing/lifestyle-pasta.jpg' %}"
                                  alt="Fresh pesto pasta with basil"
                                  width="200"
                                  height="200"
@@ -657,7 +657,7 @@
                     </div>
                     <div class="flex-1 rounded-xl overflow-hidden group">
                         <div class="aspect-square overflow-hidden">
-                            <img src="/media/landing/lifestyle-bread.jpg"
+                            <img src="{% static 'landing/lifestyle-bread.jpg' %}"
                                  alt="Artisan bread with olive oil drizzle"
                                  width="200"
                                  height="200"

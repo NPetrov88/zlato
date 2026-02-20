@@ -36,6 +36,6 @@ urlpatterns += i18n_patterns(
     path('orders/', include('orders.urls')),
 )
 
-# Serve media files in development (product images)
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Serve media files (always - WhiteNoise handles static, but we need media too)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static('/media/', document_root=settings.MEDIA_ROOT)

@@ -145,7 +145,7 @@ STATICFILES_DIRS = [BASE_DIR / 'static', BASE_DIR / 'media']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # WhiteNoise for serving static files in production
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Media files (User uploaded content like product images)
 # In production, media is served via static files (WhiteNoise)

@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n static %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
@@ -72,7 +72,7 @@
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1">
             <div class="flex justify-between items-center">
                 <a href="{% url 'homepage' %}" class="relative z-50 -ml-4 sm:-ml-6 lg:-ml-8">
-                    <img src="/media/landing/zlato-logo-new.png"
+                    <img src="{% static 'landing/zlato-logo-new.png' %}"
                          alt="ZLATO"
                          class="h-40 md:h-48 hover:opacity-90 transition-opacity">
                 </a>
@@ -134,7 +134,7 @@
     <footer class="bg-zlato-cream text-zlato-text-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="text-center">
-                <img src="/media/landing/zlato-logo-new.png"
+                <img src="{% static 'landing/zlato-logo-new.png' %}"
                      alt="ZLATO"
                      class="h-40 md:h-48 mx-auto opacity-90">
                 <p class="text-sm opacity-80 -mt-12">{% trans "Premium Greek olive oil for modern kitchens" %}</p>

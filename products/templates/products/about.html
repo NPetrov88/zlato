@@ -1,5 +1,5 @@
 {% extends 'products/base.html' %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block title %}{% trans "Let's Cook" %} - ZLATO{% endblock %}
 
@@ -28,7 +28,7 @@
             <!-- Recipe 1 -->
             <div class="flex-shrink-0 w-80 group">
                 <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/media/landing/recipe-1.jpg"
+                    <img src="{% static 'landing/recipe-1.jpg' %}"
                          alt="Mediterranean salad with olive oil"
                          loading="lazy"
                          class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
@@ -39,7 +39,7 @@
             <!-- Recipe 2 -->
             <div class="flex-shrink-0 w-80 group">
                 <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/media/landing/recipe-2.jpg"
+                    <img src="{% static 'landing/recipe-2.jpg' %}"
                          alt="Fresh bruschetta with olive oil drizzle"
                          loading="lazy"
                          class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
@@ -50,7 +50,7 @@
             <!-- Recipe 3 -->
             <div class="flex-shrink-0 w-80 group">
                 <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/media/landing/recipe-3.jpg"
+                    <img src="{% static 'landing/recipe-3.jpg' %}"
                          alt="Pasta with olive oil and herbs"
                          loading="lazy"
                          class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
@@ -61,7 +61,7 @@
             <!-- Recipe 4 -->
             <div class="flex-shrink-0 w-80 group">
                 <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/media/landing/recipe-4.jpg"
+                    <img src="{% static 'landing/recipe-4.jpg' %}"
                          alt="Roasted vegetables with olive oil"
                          loading="lazy"
                          class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
@@ -72,7 +72,7 @@
             <!-- Recipe 5 -->
             <div class="flex-shrink-0 w-80 group">
                 <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/media/landing/recipe-5.jpg"
+                    <img src="{% static 'landing/recipe-5.jpg' %}"
                          alt="Grilled fish with olive oil"
                          loading="lazy"
                          class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
@@ -83,7 +83,7 @@
             <!-- Recipe 6 -->
             <div class="flex-shrink-0 w-80 group">
                 <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/media/landing/recipe-6.jpg"
+                    <img src="{% static 'landing/recipe-6.jpg' %}"
                          alt="Caprese salad with olive oil"
                          loading="lazy"
                          class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
@@ -94,7 +94,7 @@
             <!-- Duplicate set for infinite scroll -->
             <div class="flex-shrink-0 w-80 group">
                 <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/media/landing/recipe-1.jpg"
+                    <img src="{% static 'landing/recipe-1.jpg' %}"
                          alt="Mediterranean salad with olive oil"
                          loading="lazy"
                          class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
@@ -104,7 +104,7 @@
 
             <div class="flex-shrink-0 w-80 group">
                 <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/media/landing/recipe-2.jpg"
+                    <img src="{% static 'landing/recipe-2.jpg' %}"
                          alt="Fresh bruschetta with olive oil drizzle"
                          loading="lazy"
                          class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
@@ -114,7 +114,7 @@
 
             <div class="flex-shrink-0 w-80 group">
                 <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/media/landing/recipe-3.jpg"
+                    <img src="{% static 'landing/recipe-3.jpg' %}"
                          alt="Pasta with olive oil and herbs"
                          loading="lazy"
                          class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
@@ -124,7 +124,7 @@
 
             <div class="flex-shrink-0 w-80 group">
                 <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/media/landing/recipe-4.jpg"
+                    <img src="{% static 'landing/recipe-4.jpg' %}"
                          alt="Roasted vegetables with olive oil"
                          loading="lazy"
                          class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
@@ -134,7 +134,7 @@
 
             <div class="flex-shrink-0 w-80 group">
                 <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/media/landing/recipe-5.jpg"
+                    <img src="{% static 'landing/recipe-5.jpg' %}"
                          alt="Grilled fish with olive oil"
                          loading="lazy"
                          class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
@@ -144,7 +144,7 @@
 
             <div class="flex-shrink-0 w-80 group">
                 <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/media/landing/recipe-6.jpg"
+                    <img src="{% static 'landing/recipe-6.jpg' %}"
                          alt="Caprese salad with olive oil"
                          loading="lazy"
                          class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
