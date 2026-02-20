@@ -1,0 +1,65 @@
+[
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "name": "ZLATO Finishing",
+    "name_bg": "ЗЛАТО Финиш",
+    "slug": "zlato-finishing",
+    "product_type": "finishing",
+    "short_description": "Premium extra virgin olive oil for drizzling",
+    "short_description_bg": "Премиум екстра върджин зехтин за поливане",
+    "description": "The star of your kitchen. ZLATO Finishing is a premium extra virgin olive oil\nsourced from the finest groves in Greece. Its robust flavor and silky texture make it perfect for\nfinishing dishes, drizzling over salads, or dipping with fresh bread.\n\nOur squeezable bottle gives you complete control - from a delicate drizzle to a generous pour.\nNo more awkward bottle tilting or oil spills. Just precision and perfection, every time.\n\nCold-pressed, unfiltered, and packed with flavor. This is olive oil, reimagined.",
+    "description_bg": "Звездата на вашата кухня. ЗЛАТО Финиш е премиум екстра върджин зехтин,\nдобит от най-добрите маслинови горички в Гърция. Неговият богат вкус и копринена текстура го правят\nперфектен за завършване на ястия, поливане на салати или потапяне със свеж хляб.\n\nНашата стискаща се бутилка ви дава пълен контрол - от деликатно поливане до щедро наливане.\nНяма повече неудобно накланяне на бутилки или разливане на зехтин. Само прецизност и съвършенство, всеки път.\n\nСтудено пресован, нефилтриран и пълен с вкус. Това е зехтин, преосмислен.",
+    "price": "28.00",
+    "inventory": 50,
+    "image": "products/zlato-finishing-purple.png",
+    "is_active": true,
+    "featured": true,
+    "created_at": "2026-01-15T22:53:31.703Z",
+    "updated_at": "2026-01-15T22:53:31.703Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "name": "ZLATO Cooking",
+    "name_bg": "ЗЛАТО Готвене",
+    "slug": "zlato-cooking",
+    "product_type": "cooking",
+    "short_description": "Premium extra virgin olive oil for high-heat cooking",
+    "short_description_bg": "Премиум екстра върджин зехтин за готвене на високи температури",
+    "description": "Your everyday cooking hero. ZLATO Cooking is the same premium Greek extra virgin olive oil,\noptimized for high-heat cooking. Sauté, roast, fry - this oil can handle it all while adding incredible flavor.\n\nThe squeezable bottle makes cooking effortless. Need a quick splash for the pan? Done. Want to coat vegetables\nbefore roasting? Easy. ZLATO Cooking brings restaurant-quality results to your home kitchen.\n\nHigh smoke point, exceptional flavor, and the control you need. Cook like a pro, squeeze like a boss.",
+    "description_bg": "Вашият ежедневен герой в кухнята. ЗЛАТО Готвене е същият премиум гръцки екстра върджин зехтин,\nоптимизиран за готвене на високи температури. Задушавайте, печете, пържете - това масло може да се справи с всичко,\nкато добавя невероятен вкус.\n\nСтискащата се бутилка прави готвенето лесно. Нуждаете се от бърз плисък за тигана? Готово. Искате да покриете\nзеленчуци преди печене? Лесно. ЗЛАТО Готвене носи ресторантско качество в домашната ви кухня.\n\nВисока точка на димене, изключителен вкус и контролът, от който се нуждаете. Гответе като професионалист.",
+    "price": "26.00",
+    "inventory": 50,
+    "image": "products/zlato-bottle-mockup.png",
+    "is_active": true,
+    "featured": true,
+    "created_at": "2026-01-15T22:53:31.703Z",
+    "updated_at": "2026-01-15T22:53:31.703Z"
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "name": "ZLATO Complete Set",
+    "name_bg": "ZLATO Комплект",
+    "slug": "zlato-complete-set",
+    "product_type": "bundle",
+    "short_description": "Premium extra virgin olive oil gift set with salt & pepper",
+    "short_description_bg": "Подаръчен комплект с екстра върджин зехтин, сол и пипер",
+    "description": "The ultimate ZLATO experience. This luxury gift set includes two bottles of our premium extra virgin olive oil, plus artisanal salt and pepper grinders. Perfect for gifting or treating yourself.",
+    "description_bg": "Най-добрият ZLATO опит. Този луксозен подаръчен комплект включва две бутилки наше премиум екстра върджин зехтин, плюс артизански мелнички за сол и пипер. Перфектен за подарък или за вас.",
+    "price": "68.00",
+    "inventory": 50,
+    "image": "products/zlato-complete-set.png",
+    "is_active": true,
+    "featured": false,
+    "created_at": "2026-01-18T14:41:01.848Z",
+    "updated_at": "2026-01-18T14:42:54.959Z"
+  }
+}
+]
